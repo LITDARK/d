@@ -1,11 +1,10 @@
 # Basic
-title: OneV's Den
-subtitle: 上善若水，人淡如菊
-welcome_message: <a href="https://objccn.io/products/">我组织的 ObjC 中国与 objc.io 合作发布了一系列 iOS/Swift 相关图书，欢迎访问了解更多</a>
-description: 嗨，我是王巍 (@onevcat)，一名 iOS 开发者。
-creator: <a href="https://onev.cat">@onevcat</a>
+title: Jason Darkness
+subtitle: A MusicGame-Dog a.k.a. "LIT.DARK"
+description: Music Games are MY LIFE.
+creator: <a href="https://LITDARK.github.io">@LIT.DARK</a>
 
-url: "https://onevcat.com"
+url: "https://litdark.cn"
 
 permalink: /:year/:month/:title/
 
@@ -13,15 +12,18 @@ permalink: /:year/:month/:title/
 highlighter: rouge
 
 # supported colors: blue, green, purple, red, orange or slate. If you need clear, leave it empty.
-cover_color: blue
+cover_color: red
 
 blog_button:
     title: 博客
     description: 访问博客
 
 nav:
-    - {title: 简历, description: 我的简历, url: '//onev.cat'}
-    - {title: 工具, description: 我所使用的 app 们, url: '/apps'}
+    - {title: 哔哩哔哩, description: All my works, url: 'https://space.bilibili.com/1529024'}
+    - {title: BEMANICN(理网), description: 理网论坛, url: 'https://bbs.bemanicn.cc/home.php?mod=space&uid=3998'}
+    - {title: 捐赠(Donation), description: Make a Donation, url: '/donation'}
+    - {title: 关于我(About Me), description: 我到底是谁, url: '/about'}
+    # - {title: Another Button, description: A button, url: 'http://example.com'}
 
 # Pagination
 plugins: [jekyll-paginate]
@@ -30,16 +32,16 @@ paginate_path: "page/:num/"
 
 # Comment
 comment:
-    disqus: onevcat
+    # disqus:
     # duoshuo:
 # Social
 social:
-    weibo: onevcat
-    github: onevcat
-    twitter: onevcat
-    mail: onev@onevcat.com
+    weibo: LIT_D_CN
+    github: LITDARK
+    twitter: LIT_DARK_CN
+    mail: JasonDarkness_CN@outlook.com
 
 # Google Analytics
 ga:
-    id: UA-25719337-1
-    host: onevcat.com
+    # id: your_ga_id
+    # host: your_host
