@@ -6,7 +6,7 @@ tags: About Me
 ---
 
 
-<embed src="//music.163.com/style/swf/widget.swf?sid=1363318000&type=2&auto=1&width=278&height=32" width="298" height="52"  allowNetworking="all"></embed>
+<embed src="//music.163.com/style/swf/widget.swf?sid=1363318000&type=2&auto=1&width=278&height=32" width="298" height="52"  allowNetworking="all">
 如果你愿意，你可以在这里了解一下我是谁。
 <br/><br/>
 
