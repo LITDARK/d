@@ -6,7 +6,7 @@ tags: About Me
 ---
 
 
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1363318000&auto=1&height=66"></iframe>
+<embed src="//music.163.com/style/swf/widget.swf?sid=1363318000&type=2&auto=1&width=278&height=32" width="298" height="52"  allowNetworking="all"></embed>
 如果你愿意，你可以在这里了解一下我是谁。
 <br/><br/>
 
