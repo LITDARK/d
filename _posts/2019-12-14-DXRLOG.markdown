@@ -5,6 +5,6 @@ date: 2019-12-14 16:30:00 +08:00
 tags: 战绩记录
 ---
 
-![maimai DX](/assets/images/blog/dx.jpeg "DX RATING")<br/><br/>
+![maimai DX](/assets/images/blog/DX/dx.jpeg "DX RATING")<br/><br/>
 
 ### 机台位置(Location):北京大兴龙湖时代天街量子攻略(Beijing,China Mainland)

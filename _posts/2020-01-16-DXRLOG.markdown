@@ -5,6 +5,6 @@ date: 2020-01-16 19:30:00 +08:00
 tags: 战绩记录
 ---
 
-![maimai DX](/assets/images/blog/DX0116.jpg "DX RATING")<br/><br/>
+![maimai DX](/assets/images/blog/DX/DX0116.jpg "DX RATING")<br/><br/>
 
 ### 机台位置(Location):风云再起北京西单店(Beijing,China Mainland)
