@@ -19,7 +19,7 @@ tags: About Me
 #### PC/Arcade端
 ------------
 
-SOUND VOLTEX (BEMANICN,BJMANIA,UNIS & Arcana Edition)&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前段位 雷電 (122%)（菜的一批<br/>SVID:1255-2368(BEMANICN)<br/>beatmania IIDX (BEMANICN,BJMANIA,Rainbow & Arcana Edition)&#160;&#160;&#160;&#160;目前段位 SP二段 (菜的一批<br/>IIDX ID:2574-2922(BEMANICN)&#160;&#160;&#160;&#160;1748-7494(BJMANIA)&#160;&#160;&#160;&#160;8250-9999(Arcana)<br/>maimai DX(舞萌DX) 三段&#160;&#160;&#160;&#160;DX RATING:5966<br/>GROOVE COASTER&#160;&#160;(Steam®,Android™,Nintendo Switch™ & Wahlap Edition)<br/>DANCERUSH STARDOM （UNIS Edition,Lv34）<br/><br/>
+SOUND VOLTEX (BEMANICN,BJMANIA,UNIS & Arcana Edition)&#160;&#160;&#160;&#160;&#160;&#160;&#160;目前段位 雷電 (122%)（菜的一批<br/>SVID:1255-2368(BEMANICN)<br/>beatmania IIDX (BEMANICN,BJMANIA,Rainbow & Arcana Edition)&#160;&#160;&#160;&#160;目前段位 SP二段 (菜的一批<br/>IIDX ID:2574-2922(BEMANICN)&#160;&#160;&#160;&#160;1748-7494(BJMANIA)&#160;&#160;&#160;&#160;8250-9999(Arcana)<br/>maimai DX(舞萌DX) 七段&#160;&#160;&#160;&#160;DX RATING:6775<br/>GROOVE COASTER&#160;&#160;(Steam®,Android™,Nintendo Switch™ & Wahlap Edition)<br/>DANCERUSH STARDOM （UNIS Edition,Lv34）<br/><br/>
 
 #### 移动端
 ------------
