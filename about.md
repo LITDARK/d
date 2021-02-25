@@ -29,5 +29,5 @@ Arcaea PTT10.98&#160;&#160;&#160;
 Cytus II&#160;&#160;&#160;
 MUSYNC<br/>Muse Dash&#160;&#160;&#160;
 BanG Dream!&#160;&#160;&#160;
-OverRapid<br/>Polytone&#160;&#160;&#160;&#160;&#160;&#160;
+OverRapid<br/>Polytone&#160;&#160;
 Tone Sphere
