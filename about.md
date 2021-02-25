@@ -5,8 +5,6 @@ date: 2019-08-13 00.36.00 +08:00
 tags: About Me
 ---
 
-
-<embed src="//music.163.com/style/swf/widget.swf?sid=1363318000&type=2&auto=1&width=278&height=32" width="298" height="52"  allowNetworking="all">
 如果你愿意，你可以在这里了解一下我是谁。
 <br/><br/>
 
@@ -14,6 +12,7 @@ tags: About Me
 
 我只是一个平凡的大二学生，体重曾高达300斤。初中开始接触音游，结果导致深陷其中无法自拔（（（
 <br/><br/>
+
 ### 主推音游
 
 <br/>
