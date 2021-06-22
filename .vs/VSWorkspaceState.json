@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BPC"
+    "\\assets\\images",
+    "\\BPC",
+    "\\BPC\\css",
+    "\\_includes",
+    "\\_layouts"
   ],
   "SelectedNode": "\\BPC\\index.html",
   "PreviewInSolutionExplorer": false
