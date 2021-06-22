@@ -19,7 +19,7 @@ blog_button:
     description: 访问博客
 
 nav:
-    - {title: 哔哩哔哩, description: All my works, url: 'https://space.bilibili.com/1529024'}
+    - {title: 哔哩哔哩(Bilibili), description: All my works, url: 'https://space.bilibili.com/1529024'}
     - {title: 捐赠(Donation), description: Make a Donation, url: '/donation'}
     - {title: 关于我(About Me), description: 我到底是谁, url: '/about'}
     - {title: BPC, description: B*****Patcher, url: '/BPC'}
