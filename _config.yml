@@ -20,9 +20,9 @@ blog_button:
 
 nav:
     - {title: 哔哩哔哩, description: All my works, url: 'https://space.bilibili.com/1529024'}
-    - {title: BEMANICN(理网), description: 理网论坛, url: 'https://bbs.bemanicn.cc/home.php?mod=space&uid=3998'}
     - {title: 捐赠(Donation), description: Make a Donation, url: '/donation'}
     - {title: 关于我(About Me), description: 我到底是谁, url: '/about'}
+    - {title: BPC, description: B*****Patcher, url: '/BPC'}
     # - {title: Another Button, description: A button, url: 'http://example.com'}
 
 # Pagination
