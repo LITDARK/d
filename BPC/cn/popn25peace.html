@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="utf-8">
     <title>pop'n music peace DLL Modder</title>
@@ -15,29 +15,29 @@
             new PatchContainer([
                 new Patcher("popn22.dll", "2019-04-23", [
                     {
-                        name: "E: Drive Fix",
-                        tooltip: "Fix crash caused by no E: drive",
+                        name: "解除E盘限制",
+                        tooltip: "修复因没有E盘而造成的崩溃",
                         patches: [{ offset: 0x273C38, off: [0x65, 0x3A, 0x2F], on: [0x64, 0x65, 0x76] }],
                     },
                     {
-                        name: "HDMI Audio Fix",
+                        name: "修复HDMI音频",
                         patches: [{ offset: 0x1307EC, off: [0x85, 0xC0, 0x75, 0x96], on: [0x90, 0x90, 0x90, 0x90] }],
                     },
                     {
-                        name: "Prevent Windows volume change on boot",
-                        tooltip: "If your volume gets forced to max, turn this on",
+                        name: "阻止启动时更改系统音量",
+                        tooltip: "若游戏启动时音量被拉满，请启用此选项。",
                         patches: [{ offset: 0x1333F0, off: [0x83], on: [0xC3] }],
                     },
                     {
-                        name: "Boot to Event Mode",
+                        name: "以Event Mode模式启动",
                         patches: [{ offset: 0x105280, off: [0x8B, 0x00, 0xC3, 0xCC], on: [0x31, 0xC0, 0x40, 0xC3] }],
                     },
                     {
-                        name: "Remove Timer",
+                        name: "移除倒计时",
                         patches: [{ offset: 0xDF09C, off: [0x0F, 0x85], on: [0x90, 0xE9] }],
                     },
                     {
-                        name: "Skip Menu and Long Note Tutorials",
+                        name: "跳过菜单和长条教程",
                         patches: [
                             { offset: 0x28BCB, off: [0x74], on: [0xEB] },
                             { offset: 0x28BA7, off: [0x75], on: [0xEB] },
@@ -45,7 +45,7 @@
                         ],
                     },
                     {
-                        name: "Unlock All Songs",
+                        name: "解锁所有歌曲",
                         patches: [
                             { offset: 0x10974D, off: [0x74], on: [0xEB] },
                             { offset: 0x109766, off: [0x75, 0x46], on: [0x90, 0x90] },
@@ -56,29 +56,29 @@
                 ]),
                 new Patcher("popn22.dll", "2019-06-25", [
                     {
-                        name: "E: Drive Fix",
-                        tooltip: "Fix crash caused by no E: drive",
+                        name: "解除E盘限制",
+                        tooltip: "修复因没有E盘而造成的崩溃",
                         patches: [{ offset: 0x278DA0, off: [0x65, 0x3A, 0x2F], on: [0x64, 0x65, 0x76] }],
                     },
                     {
-                        name: "HDMI Audio Fix",
+                        name: "修复HDMI音频",
                         patches: [{ offset: 0x13097C, off: [0x85, 0xC0, 0x75, 0x96], on: [0x90, 0x90, 0x90, 0x90] }],
                     },
                     {
-                        name: "Prevent Windows volume change on boot",
-                        tooltip: "If your volume gets forced to max, turn this on",
+                        name: "阻止启动时更改系统音量",
+                        tooltip: "若游戏启动时音量被拉满，请启用此选项。",
                         patches: [{ offset: 0x133580, off: [0x83], on: [0xC3] }],
                     },
                     {
-                        name: "Boot to Event Mode",
+                        name: "以Event Mode模式启动",
                         patches: [{ offset: 0x105400, off: [0x8B, 0x00, 0xC3, 0xCC], on: [0x31, 0xC0, 0x40, 0xC3] }],
                     },
                     {
-                        name: "Remove Timer",
+                        name: "移除倒计时",
                         patches: [{ offset: 0xDF1AC, off: [0x0F, 0x85], on: [0x90, 0xE9] }],
                     },
                     {
-                        name: "Skip Menu and Long Note Tutorials",
+                        name: "跳过菜单和长条教程",
                         patches: [
                             { offset: 0x28C0B, off: [0x74], on: [0xEB] },
                             { offset: 0x28BE7, off: [0x75], on: [0xEB] },
@@ -86,7 +86,7 @@
                         ],
                     },
                     {
-                        name: "Unlock All Songs",
+                        name: "解锁所有歌曲",
                         patches: [
                             { offset: 0x1098DD, off: [0x74], on: [0xEB] },
                             { offset: 0x1098F6, off: [0x75, 0x46], on: [0x90, 0x90] },
@@ -97,29 +97,29 @@
                 ]),
                 new Patcher("popn22.dll", "2020-09-28", [
                     {
-                        name: "E: Drive Fix",
-                        tooltip: "Fix crash caused by no E: drive",
+                        name: "解除E盘限制",
+                        tooltip: "修复因没有E盘而造成的崩溃",
                         patches: [{ offset: 0x286AA8, off: [0x65, 0x3A, 0x2F], on: [0x64, 0x65, 0x76] }],
                     },
                     {
-                        name: "HDMI Audio Fix",
+                        name: "修复HDMI音频",
                         patches: [{ offset: 0x13442C, off: [0x85, 0xC0, 0x75, 0x96], on: [0x90, 0x90, 0x90, 0x90] }],
                     },
                     {
-                        name: "Prevent Windows volume change on boot",
-                        tooltip: "If your volume gets forced to max, turn this on",
+                        name: "阻止启动时更改系统音量",
+                        tooltip: "若游戏启动时音量被拉满，请启用此选项。",
                         patches: [{ offset: 0x137030, off: [0x83], on: [0xC3] }],
                     },
                     {
-                        name: "Boot to Event Mode",
+                        name: "以Event Mode模式启动",
                         patches: [{ offset: 0x108DC0, off: [0x8B, 0x00, 0xC3, 0xCC], on: [0x31, 0xC0, 0x40, 0xC3] }],
                     },
                     {
-                        name: "Remove Timer",
+                        name: "移除倒计时",
                         patches: [{ offset: 0xE294C, off: [0x0F, 0x85], on: [0x90, 0xE9] }],
                     },
                     {
-                        name: "Skip Menu and Long Note Tutorials",
+                        name: "跳过菜单和长条教程",
                         patches: [
                             { offset: 0x28E0B, off: [0x74], on: [0xEB] },
                             { offset: 0x28DE7, off: [0x75], on: [0xEB] },
@@ -127,7 +127,7 @@
                         ],
                     },
                     {
-                        name: "Unlock All Songs",
+                        name: "解锁所有歌曲",
                         patches: [
                             { offset: 0x10D2E2, off: [0x74], on: [0xEB] },
                             { offset: 0x10D2FB, off: [0x74], on: [0xEB] },

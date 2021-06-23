@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
     <head>
         <meta charset="utf-8">
         <title>BeatStream アニムトライヴ DLL Modder</title>
@@ -15,12 +15,12 @@
                 new PatchContainer([
                     new Patcher("beatstream.dll", "2016-11-14", [
                         {
-                            name: "E: drive fix",
-                            tooltip: "Fix crash caused by no E: drive",
+                            name: "解除E盘限制",
+                            tooltip: "修复因没有E盘而造成的崩溃",
                             patches: [{offset: 0x8645FC, off: [0x65, 0x3A, 0x2F], on: [0x64, 0x65, 0x76]}]
                         },
                         {
-                            name: "Unlock all songs",
+                            name: "解锁所有歌曲",
                             patches: [{
                                 offset: 0x16CCB1,
                                 off: [0x48, 0x83, 0xFD, 0x10, 0x72, 0x03, 0x48, 0x8B, 0x09, 0x41],
@@ -28,7 +28,7 @@
                             }]
                         },
                         {
-                            name: "NIGHTMARE difficulty unlock",
+                            name: "解锁噩梦(NIGHTMARE)难度",
                             patches: [{
                                 offset: 0x16EADE,
                                 off: [0x8B, 0xCB, 0xE8, 0xDB, 0xB4, 0x0E],

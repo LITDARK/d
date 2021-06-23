@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="utf-8">
     <title>DDR A20 DLL Modder</title>
@@ -15,24 +15,24 @@
         new PatchContainer([
           new Patcher("gamemdx.dll", "2020-02-03", [
                     {
-                        name: "Force Cabinet Type 6",
-                        tooltip: "a.k.a. 'Gold Cab' Mode",
+                        name: "强制使用\"Cabinet Type 6\"",
+                        tooltip: "即DDR20周年纪念金色框体",
                         patches: [{offset: 0x0E118, off: [0xFF, 0x24], on: [0xEB, 0x71]}]
                     },
                     {
-                        name: "Force enable fast/slow",
+                        name: "启用FAST/SLOW显示",
                         patches: [{offset: 0xA0D40, off: [0x8B, 0x41, 0x44], on: [0x31, 0xC0, 0x40]}]
                     },
                     {
-                        name: "Force background judgement",
+                        name: "强制后台判定",
                         patches: [{offset: 0xA0D30, off: [0x8B, 0x41], on: [0x31, 0xC0]}]
                     },
                     {
-                        name: "Force darkest background",
+                        name: "强制使用暗色背景",
                         patches: [{offset: 0xA1AEE, off: [0x75, 0x03, 0x33, 0xC0], on: [0x33, 0xC0, 0xB0, 0x03]}]
                     },
                     {
-                        name: "Song Unlock",
+                        name: "解锁所有歌曲",
                         patches: [
                             {offset: 0x952C6, off: [0x75, 0x08, 0x5F, 0x32, 0xC0], on: [0x90, 0x90, 0x5F, 0xB0, 0x01]},
                             {offset: 0x969A3, off: [0x0F, 0x85], on: [0x90, 0xE9]},
@@ -43,25 +43,25 @@
                         ]
                     },
                     {
-                        name: "Tutorial Skip",
+                        name: "跳过教程",
                         patches: [{offset: 0x4AD33, off: [0x75], on: [0xEB]}]
                     },
                     {
-                        name: "Timer Freeze",
+                        name: "冻结时间",
                         patches: [{offset: 0x28545, off: [0x74], on: [0xEB]}]
                     },
                     {
-                        name: "Premium Free",
+                        name: "启用Premium Free模式",
                         patches: [{offset: 0x1F788, off: [0x01], on: [0x00]}]
                     },
                     {
-                        name: "Unlock options",
-                        tooltip: "Unlocks e-amusement exclusive options such as ARROW COLOR",
+                        name: "解锁E-Amusement独占设置",
+                        tooltip: "解锁箭头颜色等独占设置",
                         patches: [{offset: 0x8ACF3, off: [0x75], on: [0xEB]}]
                     },
                     {
-                        name: 'Mute announcer',
-                        tooltip: 'Also mutes crowd cheering and booing during gameplay',
+                        name: '背景CV静音',
+                        tooltip: '同时静音游戏中的喝彩声等效果音',
                         patches: [
                             {offset: 0x2B698, off: [0x0F, 0x84], on: [0x90, 0xE9]},
                             {offset: 0x1C16F3, off: [0x76], on: [0x62]},
@@ -69,13 +69,13 @@
                         ]
                     },
                     {
-                        name: "Enable DDR SELECTION",
-                        tooltip: "Even works in offline/local mode!",
+                        name: "启用DDR SELECTION分类",
+                        tooltip: "离线/本地服也可使用！",
                         patches: [{offset: 0x85314, off: [0xE8, 0xA7, 0xAA, 0x01], on: [0xB8, 0x01, 0x00, 0x00]}]
                     },
                     {
-                        name: 'Force DDR SELECTION theme everywhere',
-                        tooltip: 'Skips intro and enables the skin selected below on all songs',
+                        name: '强制使用DDR SELECTION主题',
+                        tooltip: '跳过开头并对所有歌曲启用下面选择的主题',
                         patches: [
                             {offset: 0x27431, off: [0x0F, 0x84], on: [0x90, 0xE9]},
                             {offset: 0x9F92D, off: [0x75, 0x49], on: [0x90, 0x90]},
@@ -85,7 +85,7 @@
                     },
                     {
                         type : "union",
-                        name : "Choose forced theme",
+                        name : "选择主题",
                         offset : 0x9F950,
                         patches : [
                             {
@@ -113,24 +113,24 @@
           ]),
           new Patcher("gamemdx.dll", "2020-03-17", [
                     {
-                        name: "Force Cabinet Type 6",
-                        tooltip: "a.k.a. 'Gold Cab' Mode",
+                        name: "强制使用\"Cabinet Type 6\"",
+                        tooltip: "即DDR20周年纪念金色框体",
                         patches: [{offset: 0x0E078, off: [0xFF, 0x24], on: [0xEB, 0x71]}]
                     },
                     {
-                        name: "Force enable fast/slow",
+                        name: "启用FAST/SLOW显示",
                         patches: [{offset: 0xA0B10, off: [0x8B, 0x41, 0x44], on: [0x31, 0xC0, 0x40]}]
                     },
                     {
-                        name: "Force background judgement",
+                        name: "强制后台判定",
                         patches: [{offset: 0xA0B00, off: [0x8B, 0x41], on: [0x31, 0xC0]}]
                     },
                     {
-                        name: "Force darkest background",
+                        name: "强制使用暗色背景",
                         patches: [{offset: 0xA187E, off: [0x75, 0x03, 0x33, 0xC0], on: [0x33, 0xC0, 0xB0, 0x03]}]
                     },
                     {
-                        name: "Song Unlock",
+                        name: "解锁所有歌曲",
                         patches: [
                             {offset: 0x94FD6, off: [0x75, 0x08, 0x5F, 0x32, 0xC0], on: [0x90, 0x90, 0x5F, 0xB0, 0x01]},
                             {offset: 0x96683, off: [0x0F, 0x85], on: [0x90, 0xE9]},
@@ -141,25 +141,25 @@
                         ]
                     },
                     {
-                        name: "Tutorial Skip",
+                        name: "跳过教程",
                         patches: [{offset: 0x4A603, off: [0x75], on: [0xEB]}]
                     },
                     {
-                        name: "Timer Freeze",
+                        name: "冻结时间",
                         patches: [{offset: 0x27EE5, off: [0x74], on: [0xEB]}]
                     },
                     {
-                        name: "Premium Free",
+                        name: "启用Premium Free模式",
                         patches: [{offset: 0x1F391, off: [0x01], on: [0x00]}]
                     },
                     {
-                        name: "Unlock options",
-                        tooltip: "Unlocks e-amusement exclusive options such as ARROW COLOR",
+                        name: "解锁E-Amusement独占设置",
+                        tooltip: "解锁箭头颜色等独占设置",
                         patches: [{offset: 0x8A4C3, off: [0x75], on: [0xEB]}]
                     },
                     {
-                        name: 'Mute announcer',
-                        tooltip: 'Also mutes crowd cheering and booing during gameplay',
+                        name: '背景CV静音',
+                        tooltip: '同时静音游戏中的喝彩声等效果音',
                         patches: [
                             {offset: 0x2B038, off: [0x0F, 0x84], on: [0x90, 0xE9]},
                             {offset: 0x1C1743, off: [0x76], on: [0x62]},
@@ -167,13 +167,13 @@
                         ]
                     },
                     {
-                        name: "Enable DDR SELECTION",
-                        tooltip: "MAY NOT WORK!",
+                        name: "启用DDR SELECTION分类",
+                        tooltip: "离线/本地服也可使用！",
                         patches: [{offset: 0x84AF9, off: [0xE8, 0xE2, 0xB0, 0x01], on: [0xB8, 0x01, 0x00, 0x00]}]
                     },
                     {
-                        name: 'Force DDR SELECTION theme everywhere',
-                        tooltip: 'Skips intro and enables the skin selected below on all songs',
+                        name: '强制使用DDR SELECTION主题',
+                        tooltip: '跳过开头并对所有歌曲启用下面选择的主题',
                         patches: [
                             {offset: 0x26DD1, off: [0x0F, 0x84], on: [0x90, 0xE9]},
                             {offset: 0x9F74D, off: [0x75, 0x49], on: [0x90, 0x90]},
@@ -182,7 +182,7 @@
                     },
                     {
                         type : "union",
-                        name : "Choose forced theme",
+                        name : "选择主题",
                         offset : 0x9F770,
                         patches : [
                             {

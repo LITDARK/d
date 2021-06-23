@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang='en'>
+<html lang='zh'>
 <head>
     <meta charset='utf-8'>
     <title>Nostalgia Op.3 DLL Modder</title>
@@ -16,7 +16,7 @@
           // Patches found by Arm1stice
           new Patcher('nostalgia.dll', "2020-01-16", [
             {
-              name: 'Menu Timer Freeze',
+              name: '冻结菜单时间',
               patches: [{offset: 0x305AA3, off: [0x41, 0xFF, 0xC8], on: [0x90, 0x90, 0x90]}]
             },
           ]),

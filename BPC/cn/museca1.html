@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
     <head>
         <meta charset="utf-8">
         <title>MÚSECA DLL Modder</title>
@@ -15,8 +15,8 @@
                 new Patcher("museca.dll", "", [
                     {
                         //Discovered by Cammy - ported by Zelminar
-                        name: "Song 1 Lock",
-                        tooltip: "Song clears/scores only. Profile progress and custom settings do not save. Reboot game to re-query for scores.",
+                        name: "锁定在\"Song 1\"",
+                        tooltip: "只保存分数，不会保存档案进度及个人设置。重启游戏以重新请求分数",
                         patches: [{offset: 0x27E0C7, off: [0xFF, 0x83, 0x8C, 0x09, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
                     },
                 ]);

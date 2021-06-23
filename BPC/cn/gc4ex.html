@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
     <head>
         <meta charset="utf-8">
         <title>Groove Coaster 4EX Modder</title>
@@ -16,7 +16,7 @@
                     new Patcher("game.exe", "game.exe (4.52)", [
                         // for in memory patching, add 0x400c00 to file offsets to get virtual addresses
                         {
-                            name: "Unlock all song difficulties",
+                            name: "解锁全难易度",
                             patches: [
                                 // non-extra
                                 {offset: 0x298e0, off: [0x55, 0x8b, 0xec, 0x51, 0x89, 0x4d], on: [0xb8, 0xff, 0x00, 0x00, 0x00, 0xc3]},
@@ -25,13 +25,13 @@
                             ],
                         },
                         {
-                            name: "Unlimited plays",
+                            name: "无限游玩",
                             patches: [
                                 {offset: 0x2356e0, off: [0x55, 0x8b, 0xec, 0x51], on: [0x33, 0xc0, 0x40, 0xc3]},
                             ],
                         },
                         {
-                            name: "Unlock all avatars, titles, navigators, skins, and sound effects",
+                            name: "解锁全部虚拟形象、称号、领航员、皮肤和效果音",
                             patches: [
                                 // unlock
                                 {offset: 0x2214e0, off: [0x55, 0x8b, 0xec, 0x83], on: [0x33, 0xc0, 0x40, 0xc3]},
@@ -48,44 +48,44 @@
                             ],
                         },
                         {
-                            name: "Hide in-game tutorial prompts",
+                            name: "隐藏游戏内教程提示",
                             patches: [
                                 {offset: 0x248659, off: [0x0f, 0x84], on: [0x90, 0xe9]},
                             ],
                         },
                         {
-                            name: "Hide scrolling \"currently offline\" message while offline",
+                            name: "离线时隐藏\"当前离线\"滚动条",
                             patches: [
                                 {offset: 0x332ae, off: [0xe8, 0xad, 0x0e, 0x1c, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90]},
                             ],
                         },
                         {
-                            name: "Show folder jackets while offline",
+                            name: "离线时显示文件夹封面",
                             patches: [
                                 {offset: 0x1ac8c0, off: [0x74, 0x33], on: [0x90, 0x90]},
                             ],
                         },
                         {
-                            name: "Fast/slow indicator",
+                            name: "FAST/SLOW 显示方式",
                             type: "union",
                             offset: 0x2266e0,
                             patches: [
                                 {
-                                    name: "Default",
+                                    name: "默认",
                                     patch: [0x55, 0x8b, 0xec, 0x83, 0xec],
                                 },
                                 {
-                                    name: "Show fast/slow near avatar",
+                                    name: "在虚拟形象旁显示",
                                     patch: [0x33, 0xc0, 0x40, 0xc3, 0x90],
                                 },
                                 {
-                                    name: "Show fast/slow near judgement text",
+                                    name: "在判定旁显示",
                                     patch: [0x33, 0xc0, 0x40, 0x40, 0xc3],
                                 },
                             ],
                         },
                         {
-                            name: "Show fast/slow even on GREAT judgement",
+                            name: "\"GREAT\"判定也显示FAST/SLOW",
                             patches: [
                                 {offset: 0x243e7f, off: [0x74, 0x11], on: [0x90, 0x90]},
                             ],
@@ -93,7 +93,7 @@
                     ]),
                     new Patcher("stage_param.dat", "stage_param.dat (4.52)", [
                         {
-                            name: "Unlock all songs",
+                            name: "解锁所有歌曲",
                             patches: [
                                 {offset: 0x26f, off: [0x00], on: [0x01]},
                                 {offset: 0x509, off: [0x00], on: [0x01]},

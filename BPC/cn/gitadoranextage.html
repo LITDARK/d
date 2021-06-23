@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="utf-8">
     <title>GITADORA NEX+AGE DLL Modder</title>
@@ -14,23 +14,24 @@
         window.addEventListener("load", function () {
             new Patcher("game.dll", "", [
               {
-                name: "Timer Freeze",
+                name: "冻结时间",
                 patches: [{offset: 0x1035BF, off: [0x0F, 0x85], on: [0x90, 0xE9]}]
               },
               {
-                name: "Cursor Hold",
+                name: "锁定光标",
+                tooltip : "歌曲结束后，选择光标保留在上次曲目而非回到主分类",
                 patches: [{offset: 0xC62AA, off: [0x0F, 0x85], on: [0x90, 0xE9]}]
               },
               {
-                name: "Stage Freeze",
+                name: "启用Premium Free(伪)模式",
                 patches: [{offset: 0x128D21, off: [0x0F, 0x85], on: [0x90, 0xE9]}]
               },
               {
-                name: "Skip Tutorial",
+                name: "跳过教程",
                 patches: [{offset: 0xF50FA, off: [0x0F, 0x87], on: [0x90, 0xE9]}]
               },
               {
-                name: "Unlock all songs",
+                name: "解锁所有歌曲",
                 patches: [
                   {offset: 0x1E9402, off: [0x61, 0x00], on: [0x4D, 0x01]},
                   {offset: 0x1E941A, off: [0x63, 0x00], on: [0x4D, 0x01]},
@@ -38,11 +39,11 @@
                 ]
               },
               {
-                name: "Enable Long Music",
+                name: "开启长音乐",
                 patches: [{offset: 0x139324, off: [0x74], on: [0xEB]}]
               },
               {
-                name: 'Skip "NOW DATA INITIALIZING" (useful for testing only)',
+                name: '跳过"NOW DATA INITIALIZING"(用于测试)',
                 patches: [{offset: 0x36E5D, off: [0x0F, 0x84, 0x74, 0x01, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
               },
             ]);

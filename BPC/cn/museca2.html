@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="utf-8">
     <title>MÚSECA 1+1/2 DLL Modder</title>
@@ -15,7 +15,7 @@
             new PatchContainer([
                 new Patcher("museca.dll", "2017-06-28 -- 2017-12-25", [
                     {
-                        name: "Infinite Final Layer", //Created by Akubits & Cammy
+                        name: "无限Final Layer", //Created by Akubits & Cammy
                         patches: [
                             {
                                 offset: 0x17E947, //Kill the song counter
@@ -35,7 +35,7 @@
                         ]
                     },
                     {
-                        name: "Auto Event Mode Toggled (Freeplay (Coin Options) must be \"ON\" for this to work efficiently)", //Created by Akubits
+                        name: "自动启用Event Mode(必须开启FREE PLAY)", //Created by Akubits
                         patches: [
                             {
                                 offset: 0x196BB1,
@@ -47,7 +47,7 @@
                 ]),
                 new Patcher("museca.dll", "2018-07-30", [
                     {
-                        name: "Infinite Final Layer", //Created by Akubits & Cammy
+                        name: "无限Final Layer", //Created by Akubits & Cammy
                         patches: [
                             {
                                 offset: 0x17E587, //Kill the song counter
@@ -67,7 +67,7 @@
                         ]
                     },
                     {
-                        name: "Auto Event Mode Toggled (Freeplay (Coin Options) must be \"ON\" for this to work efficiently)", //Created by Akubits
+                        name: "自动启用Event Mode(必须开启FREE PLAY)", //Created by Akubits
                         patches: [
                             {
                                 offset: 0x196431,
@@ -77,7 +77,7 @@
                         ]
                     },
                     {
-                        name: "Rerate song folders from 1-15 to 2-16", // Created by dogelition_man
+                        name: "以2-16重新建立歌曲文件夹", // Created by dogelition_man
                         patches: [
                             {
                                 offset: 0x29E8FB,
@@ -97,7 +97,7 @@
                         ]
                     },
                     {
-                        name: "Increase default coloris from 30k to 100k", // Created by dogelition_man
+                        name: "增加默认Coloris至100k", // Created by dogelition_man
                         patches: [
                             {
                                 offset: 0x27459E,
@@ -107,7 +107,7 @@
                         ]
                     },
                     {
-                        name: "Remove 20191231 date limit for charts", // Created by dogelition_man
+                        name: "移除铺面文件的20191231日期限制", // Created by dogelition_man
                         patches: [
                             {
                                 offset: 0xA4F30,
