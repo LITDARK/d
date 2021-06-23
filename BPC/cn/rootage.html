@@ -3,284 +3,283 @@
 <head>
     <meta charset='utf-8'>
     <title>IIDX Rootage DLL Modder</title>
-    <link rel='stylesheet' href='css/style.css'>
-    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
-    <link href="../assets/images/favicon.png" rel="shortcut icon" type="image/png">
+    <link rel='stylesheet' href='../css/style.css'>
+    <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+    <link href="../../assets/images/favicon.png" rel="shortcut icon" type="image/png">
     <!-- don't hate -->
     <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
-    <script type='text/javascript' src='js/FileSaver.min.js'></script>
-    <script type='text/javascript' src='js/dllpatcher.js'></script>
+    <script type='text/javascript' src='../js/FileSaver.min.js'></script>
+    <script type='text/javascript' src='../js/dllpatcher-cn.js'></script>
     <script type='text/javascript'>
       window.addEventListener('load', function () {
         new PatchContainer([
           new Patcher('bm2dx.dll', "2019-01-23", [
             {
-              name: 'Unlock All Songs',
+              name: '解锁全曲',
               patches: [{offset: 0x1609C2, off: [0x74, 0x10], on: [0x90, 0x90]}]
             },
             {
-              name: 'Premium Free',
+              name: '启用Premium Free模式',
               patches: [{offset: 0x31DB97, off: [0x75, 0x14], on: [0xEB, 0x14]}]
             },
             {
-              name: 'Premium Free Timer Freeze',
+              name: '冻结Premium Free模式时间',
               patches: [{offset: 0x16294D, off: [0xFF, 0xC8], on: [0x90, 0x90]}]
             },
             {
-              name: 'Cursor lock',
-              tooltip : "After song finishes, song select remains on previous song",
+              name: '锁定光标',
+              tooltip : "歌曲结束后，选择光标保留在上次曲目而非回到主分类",
               patches: [{offset: 0x322DC4, off: [0x74, 0x1D], on: [0x90, 0x90]}]
             },
             {
-              name: 'CS-Style Song Start Delay',
-              tooltip : "Holding Start will pause the song at the beginning until you release it",
+              name: '家用风格开始前延迟',
+              tooltip : "游戏开始前按住Start将暂停歌曲，直到你松开它。",
               patches: [{offset: 0x33DF5A, off: [0x7D, 0x25], on: [0x90, 0x90]}]
             },
           ]),
           new Patcher('bm2dx.dll', "2019-02-20", [
             {
-              name: 'Unlock All Songs',
+              name: '解锁全曲',
               patches: [{offset: 0x161462, off: [0x74, 0x10], on: [0x90, 0x90]}]
             },
             {
-              name: 'Premium Free Timer Freeze',
+              name: '冻结Premium Free模式时间',
               patches: [{offset: 0x16366D, off: [0xFF, 0xC8], on: [0x90, 0x90]}]
             },
           ]),
           new Patcher('bm2dx.dll', "2019-06-03", [
             {
-              name: 'Unlock All Songs',
+              name: '解锁全曲',
               patches: [{offset: 0x16C412, off: [0x74, 0x10], on: [0x90, 0x90]}]
             },
             {
-              name: 'Premium Free Timer Freeze',
+              name: '冻结Premium Free模式时间',
               patches: [{offset: 0x16E6ED, off: [0xFF, 0xC8], on: [0x90, 0x90]}]
             },
           ]),
           new Patcher('bm2dx.dll', "2019-09-02", [
             {
-              name: 'SSE4.2 Fix',
-              tooltip : "This will allow the game to run on processors which do not support the SSE4.2 instruction set. If you can successfully boot the game, do NOT check this.",
+              name: '修复SSE4.2指令集',
+              tooltip : "此选项将允许游戏在没有SSE4.2指令集的CPU上运行。若能正常启动游戏，请不要勾选此选项！！！",
               patches: [{offset: 0x3F8C77, off: [0xF3, 0x45, 0x0F], on: [0x90, 0x90, 0x90]}]
             },
             {
-              name: 'Unlock All Songs',
+              name: '解锁全曲',
               patches: [{offset: 0x16D7B2, off: [0x74, 0x10], on: [0x90, 0x90]}]
             },
             {
-              name: 'Unlock All 12s',
+              name: '解锁所有12级歌曲',
               patches: [{offset: 0x16D660, off: [0x83, 0xFF, 0x02, 0x74, 0x05, 0x83, 0xFF, 0x05], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
             },
             {
-              name: 'Skip CAMERA DEVICE ERROR prompt',
+              name: '跳过摄像头报错界面',
               patches: [{offset: 0x36F37B, off: [0x84], on: [0x81]}]
             },
             {
-              name: '1P Premium Free',
+              name: '启用1P的Premium Free模式',
               patches: [{offset: 0x32F5C7, off: [0x75, 0x14], on: [0xEB, 0x14]}]
             },
             {
-              name: '2P Premium Free',
+              name: '启用2P的Premium Free模式',
               patches: [
                 {offset: 0x32F765, off: [0x74, 0x55], on: [0x90, 0x90]},
                 {offset: 0x32F77B, off: [0x74, 0x3F], on: [0x90, 0x90]}
               ]
             },
             {
-              name: 'Premium Free Timer Freeze',
+              name: '冻结Premium Free模式时间',
               patches: [{offset: 0x16FCAD, off: [0xFF, 0xC8], on: [0x90, 0x90]}]
             },
             {
-              name: 'Standard/Menu Timer Freeze',
+              name: '冻结菜单/标准模式时间',
               patches: [{offset: 0x387EB7, off: [0x74], on: [0xEB]}]
             },
             {
-              name: 'Cursor lock',
-              tooltip : "After song finishes, song select remains on previous song",
+              name: '锁定光标',
+              tooltip : "歌曲结束后，选择光标保留在上次曲目而非回到主分类",
               patches: [{offset: 0x334914, off: [0x74, 0x1D], on: [0x90, 0x90]}]
             },
             {
-              name: 'CS-Style Song Start Delay',
-              tooltip : "Holding Start will pause the song at the beginning until you release it",
+              name: '家用风格开始前延迟',
+              tooltip : "游戏开始前按住Start将暂停歌曲，直到你松开它。",
               patches: [{offset: 0x35396A, off: [0x7D, 0x25], on: [0x90, 0x90]}]
             },
             {
-              name: 'Play video preview on all songs',
-              tooltip : "By default, only some songs in the beginner folder show a BGA preview on the music select screen. This edit extends this function to every song in any folder.",
+              name: '启用所有曲目的BGA预览',
+              tooltip : "默认情况下，只有Beginner分类下的部分曲目会在选歌时预览BGA，此选项会将此功能应用到全部曲目上",
                 patches: [
                 {offset: 0x11CA4C, off: [0x0F, 0xB6], on: [0xEB, 0x2F]},
                 {offset: 0x11FDFE, off: [0x74, 0x0E], on: [0x90, 0x90]}
               ]
             },
             {
-              name: 'Hide INSERT COIN[S] text',
+              name: '隐藏INSERT COIN[S]字样显示',
               patches: [{offset : 0x107279, off: [0x3B], on: [0x3A]}]
             },
             {
-              name: 'Hide CREDIT: %d text',
+              name: '隐藏CREDIT: %d字样显示',
               patches: [{offset: 0x106DF8, off: [0x0C], on: [0x0B]}]
             },
             {
-              name: 'Hide CREDIT: %d COIN %d / %d text',
+              name: '隐藏CREDIT: %d COIN %d / %d字样显示',
               patches: [{offset: 0x106DCD, off: [0x17], on: [0x16]}],
             },
             {
-              name: 'Hide EXTRA PASELI: %d text',
+              name: '隐藏EXTRA PASELI: %d字样显示',
               patches: [{offset: 0x106EE9, off: [0x43], on: [0x42]}]
             },
             {
-              name: 'Hide PASELI: %d text',
+              name: '隐藏PASELI: %d字样显示',
               patches: [{offset: 0x1070B8, off: [0xA4], on: [0xA3]}]
             },
             {
-              name: 'Hide PASELI: NO ACCOUNT text',
+              name: '隐藏PASELI: NO ACCOUNT字样显示',
               patches: [{offset: 0x10717B, off: [0x21], on: [0x20]}]
             },
             {
-              name: 'Hide PASELI: ****** text',
+              name: '隐藏PASELI: ******字样显示',
               patches: [{offset: 0x1070DD, off: [0x9F], on: [0x9E]}]
             },
             {
-              name: 'Free play text to LED ticker (Bottom Right)',
-              tooltip : "Song Title/Ticker information will display instead of FREEPLAY",
+              name: '将右下角的FREE PLAY字样替换为米字屏信息',
               patches: [{offset: 0x106F9F, off: [0x35, 0x2F, 0x35, 0x00], on: [0x59, 0x61, 0x03, 0x03]}]
             },
             {
-              name: 'LED Ticker (Top Left)',
-              tooltip : "This does NOT require FREEPLAY on",
+              name: '在左上角显示米字屏信息',
+              tooltip : "此选项无需启用FREE PLAY",
               patches: [
                 {offset: 0x36D700, off: [0x7C, 0xBA, 0x1C, 0x00], on: [0x98, 0x01, 0x3A, 0x02]},
                 {offset: 0x36D8D8, off: [0x74, 0x3C], on: [0x90, 0x90]}
               ]
             },
             {
-              name: 'Quick Retry',
-              tooltip : "Guest or non-VIP Card Players - Hold VEFX and Effect during a song to quick restart",
+              name: '快速重开',
+              tooltip : "在游客和未使用VIP卡的模式下启用快速重开",
               patches: [{offset: 0x1583BF, off: [0x32, 0xC0], on: [0xB0, 0x01]}]
             },
             {
-              name: 'Expert Course Force Open (in offline or local mode)',
+              name: '在离线和本地模式下强制启用EXPERT模式',
               patches: [{offset: 0x32F711, off: [0x75], on: [0xEB]}]
             },
             {
-              name: "Shorter monitor check",
-              tooltip: "Runs for 120 frames (2 seconds) instead of 1200 (20 seconds), recommended only if you have a very stable framerate",
+              name: "更短的显示器检测时间",
+              tooltip: "进行2秒而非20秒的显示器检测，只推荐在拥有异常稳定的帧数的情况下开启",
               patches: [{offset: 0x366DEC, off: [0xB0, 0x04], on: [0x78, 0x00]}]
             },
             {
-              name: "Shorter Arena timeout",
-              tooltip: "Reduce time before CPUs fill empty slots in online lobbies from 1m5s to 30s. Only takes effect if you are the host.",
+              name: "更短的Arena匹配时间",
+              tooltip: "将匹配时间从65秒降至30秒以防止BOT占位，仅在自己为主机时生效",
               patches: [{offset: 0x37FE54, off: [0x3C, 0x0F], on: [0x08, 0x07]}]
             },
           ]),
           new Patcher('bm2dx.dll', "2019-10-07", [
             {
-              name: 'SSE4.2 Fix',
-              tooltip : "This will allow the game to run on processors which do not support the SSE4.2 instruction set. If you can successfully boot the game, do NOT check this.",
+              name: '修复SSE4.2指令集',
+              tooltip : "此选项将允许游戏在没有SSE4.2指令集的CPU上运行。若能正常启动游戏，请不要勾选此选项！！！",
               patches: [{offset: 0x3F8CF7, off: [0xF3, 0x45, 0x0F], on: [0x90, 0x90, 0x90]}]
             },
             {
-              name: 'Unlock All Songs',
+              name: '解锁全曲',
               patches: [{offset: 0x16D7B2, off: [0x74, 0x10], on: [0x90, 0x90]}]
             },
             {
-              name: 'Unlock All 12s',
+              name: '解锁所有12级歌曲',
               patches: [{offset: 0x16D660, off: [0x83, 0xFF, 0x02, 0x74, 0x05, 0x83, 0xFF, 0x05], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
             },
             {
-              name: 'Skip CAMERA DEVICE ERROR prompt',
+              name: '跳过摄像头报错界面',
               patches: [{offset: 0x36F3FB, off: [0x84], on: [0x81]}]
             },
             {
-              name: '1P Premium Free',
+              name: '启用1P的Premium Free模式',
               patches: [{offset: 0x32F5C7, off: [0x75, 0x14], on: [0xEB, 0x14]}]
             },
             {
-              name: '2P Premium Free',
+              name: '启用2P的Premium Free模式',
               patches: [
                 {offset: 0x32F765, off: [0x74, 0x55], on: [0x90, 0x90]},
                 {offset: 0x32F77B, off: [0x74, 0x3F], on: [0x90, 0x90]}
               ]
             },
             {
-              name: 'Premium Free Timer Freeze',
+              name: '冻结Premium Free模式时间',
               patches: [{offset: 0x16FCAD, off: [0xFF, 0xC8], on: [0x90, 0x90]}]
             },
             {
-              name: 'Standard/Menu Timer Freeze',
+              name: '冻结菜单/标准模式时间',
               patches: [{offset: 0x387F37, off: [0x74], on: [0xEB]}]
             },
             {
-              name: 'Cursor lock',
-              tooltip : "After song finishes, song select remains on previous song",
+              name: '锁定光标',
+              tooltip : "歌曲结束后，选择光标保留在上次曲目而非回到主分类",
               patches: [{offset: 0x334914, off: [0x74, 0x1D], on: [0x90, 0x90]}]
             },
             {
-              name: 'CS-Style Song Start Delay',
-              tooltip : "Holding Start will pause the song at the beginning until you release it",
+              name: '家用风格开始前延迟',
+              tooltip : "游戏开始前按住Start将暂停歌曲，直到你松开它。",
               patches: [{offset: 0x3539EA, off: [0x7D, 0x25], on: [0x90, 0x90]}]
             },
             {
-              name: 'Play video preview on all songs',
-              tooltip : "By default, only some songs in the beginner folder show a BGA preview on the music select screen. This edit extends this function to every song in any folder.",
+              name: '启用所有曲目的BGA预览',
+              tooltip : "默认情况下，只有Beginner分类下的部分曲目会在选歌时预览BGA，此选项会将此功能应用到全部曲目上",
                 patches: [
                 {offset: 0x11CA4C, off: [0x0F, 0xB6], on: [0xEB, 0x2F]},
                 {offset: 0x11FDFE, off: [0x74, 0x0E], on: [0x90, 0x90]}
               ]
             },
             {
-              name: 'Hide INSERT COIN[S] text',
+              name: '隐藏INSERT COIN[S]字样显示',
               patches: [{offset : 0x107279, off: [0x3B], on: [0x3A]}]
             },
             {
-              name: 'Hide CREDIT: %d text',
+              name: '隐藏CREDIT: %d字样显示',
               patches: [{offset: 0x106DF8, off: [0x0C], on: [0x0B]}]
             },
             {
-              name: 'Hide CREDIT: %d COIN %d / %d text',
+              name: '隐藏CREDIT: %d COIN %d / %d字样显示',
               patches: [{offset: 0x106DCD, off: [0x17], on: [0x16]}],
             },
             {
-              name: 'Hide EXTRA PASELI: %d text',
+              name: '隐藏EXTRA PASELI: %d字样显示',
               patches: [{offset: 0x106EE9, off: [0x43], on: [0x42]}]
             },
             {
-              name: 'Hide PASELI: %d text',
+              name: '隐藏PASELI: %d字样显示',
               patches: [{offset: 0x1070B8, off: [0xA4], on: [0xA3]}]
             },
             {
-              name: 'Hide PASELI: NO ACCOUNT text',
+              name: '隐藏PASELI: NO ACCOUNT字样显示',
               patches: [{offset: 0x10717B, off: [0x21], on: [0x20]}]
             },
             {
-              name: 'Hide PASELI: ****** text',
+              name: '隐藏PASELI: ******字样显示',
               patches: [{offset: 0x1070DD, off: [0x9F], on: [0x9E]}]
             },
             {
-              name: 'Free play text to LED ticker (Bottom Right)',
-              tooltip : "Song Title/Ticker information will display instead of FREEPLAY",
+              name: '将右下角的FREE PLAY字样替换为米字屏信息',
+              
               patches: [{offset: 0x106F9F, off: [0x35, 0x2F, 0x35, 0x00], on: [0xD9, 0x68, 0x44, 0x02]}]
             },
             {
-              name: 'LED Ticker (Top Left)',
-              tooltip : "This does NOT require FREEPLAY on",
+              name: '在左上角显示米字屏信息',
+              tooltip : "此选项无需启用FREE PLAY",
               patches: [
                 {offset: 0x36D780, off: [0xFC, 0xB9, 0x1C, 0x00], on: [0x98, 0x01, 0x3A, 0x02]},
                 {offset: 0x36D958, off: [0x74, 0x3C], on: [0x90, 0x90]}
               ]
             },
             {
-              name: 'Quick Retry',
-              tooltip : "Guest or non-VIP Card Players - Hold VEFX and Effect during a song to quick restart",
+              name: '快速重开',
+              tooltip : "在游客和未使用VIP卡的模式下启用快速重开",
               patches: [{offset: 0x1583BF, off: [0x32, 0xC0], on: [0xB0, 0x01]}]
             },
             {
-              name: 'Expert Course Force Open (in offline or local mode)',
+              name: '在离线和本地模式下强制启用EXPERT模式',
               patches: [{offset: 0x32F711, off: [0x75], on: [0xEB]}]
             },
             {
-              name: "Shorter monitor check",
-              tooltip: "Runs for 120 frames (2 seconds) instead of 1200 (20 seconds), recommended only if you have a very stable framerate",
+              name: "更短的显示器检测时间",
+              tooltip: "进行2秒而非20秒的显示器检测，只推荐在拥有异常稳定的帧数的情况下开启",
               patches: [{offset: 0x366E6C, off: [0xB0, 0x04], on: [0x78, 0x00]}]
             },
           ]),

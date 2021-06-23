@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang='zh'>
+<head>
+    <meta charset='utf-8'>
+    <title>SDVX IV DLL Modder</title>
+    <link rel='stylesheet' href='../css/style.css'>
+    <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+    <link href="../../assets/images/favicon.png" rel="shortcut icon" type="image/png">
+    <!-- don't hate -->
+    <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+    <script type='text/javascript' src='../js/FileSaver.min.js'></script>
+    <script type='text/javascript' src='../js/dllpatcher-cn.js'></script>
+    <script type='text/javascript'>
+      window.addEventListener('load', function () {
+        new PatchContainer([
+          new Patcher('soundvoltex.dll', "2019-02-06", [
+            {
+              name: '解锁全曲/全难度',
+              patches: [
+                {
+                  offset: 0x158D42,
+                  off: [0xE8, 0x69, 0x5D, 0x02],
+                  on: [0xB8, 0x0D, 0x00, 0x00]
+                },
+                {
+                  offset: 0x1BF579,
+                  off: [0x8B, 0x44, 0x24, 0x20, 0xE8, 0x3E, 0xEB, 0xFF, 0xFF],
+                  on: [0xB8, 0x03, 0x00, 0x00, 0x00, 0x90, 0x90, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              name: '全曲目"Safe""',
+              tooltip: '血条归零不会闭店',
+              patches: [{offset : 0x17A153, off: [0x32, 0xC0], on: [0xB0, 0x01]}]
+            },
+            {
+              name: '封面不显示“Safe”图标',
+              tooltip: '让你的眼睛不那么花',
+              patches: [{offset: 0x2FB684, off: [0x73], on: [0x00]}]
+            },
+            {
+              name: '阻止启动时更改系统音量',
+              tooltip: '若游戏启动时音量被拉满，请启用此选项。',
+              patches: [{offset: 0x2550CA, off: [0xE8, 0x21, 0x03, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              name: '以Event Mode模式启动',
+              patches: [{offset: 0x19EAD2, off: [0x00], on: [0x01]}]
+            },
+            {
+              name: '关闭\"EVENT MODE/FREE PLAY\"字样显示',
+              patches: [{offset: 0xBF9E0, off: [0xE8, 0xDB], on: [0xEB, 0x03]}]
+            },
+            {
+              name: '启用Premium Free(伪)模式',
+              tooltip: '只保存分数，不会保存任务进度及个人设置。',
+              patches: [
+                {
+                  offset: 0x1D6B8F,
+                  off: [0x00],
+                  on: [0x02]
+                },
+                {
+                  offset: 0x1D6D76,
+                  off: [0x8B, 0x83, 0x64, 0x10, 0x00, 0x00, 0x8D, 0x48, 0x01, 0x83, 0xF9, 0x04, 0x56, 0x57, 0x7F, 0x52],
+                  on: [0xB8, 0x01, 0x00, 0x00, 0x00, 0x89, 0x83, 0x64, 0x10, 0x00, 0x00, 0x90, 0x56, 0x57, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              name: '启用ARS (Alternative Rate System)',
+              patches: [{offset : 0x179864, off: [0x74], on : [0xEB]}]
+            },
+            {
+              name: '全模式冻结时间',
+              patches: [{offset: 0x779FB, off: [0x8B, 0x43, 0x60, 0x85, 0xC0, 0x74, 0x04], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              name: '困难血条从0%开始',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x120730, off: [0x10, 0x27], on: [0x01, 0x00]}]
+            },
+            {
+              name: '困难血条不回血',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x120BAA, off: [0x01, 0x50, 0x48], on: [0x90, 0x90, 0x90]}]
+            },
+            {
+              // Recreated by Cammy, original by Zelminar
+              name: '将Omega Dimension(船模式)特殊全球匹配界面设为默认',
+              patches: [{offset: 0x36F298, off: [0xFC, 0x81, 0x31, 0x10], on: [0x94, 0x72, 0x31, 0x10]}]
+            },
+            {
+              // Created by dogelition_man and Cammy
+              name: 'QC模式',
+              tooltip: '替换Test菜单中的IC Card Check',
+              patches: [
+                {offset: 0x4EB0, off: [0x6A, 0xFF, 0x68, 0x3B, 0xB4], on: [0xE9, 0xFB, 0x0B, 0x00, 0x00]},
+                {
+                  offset: 0x2FE5A0, //Replace text string
+                  off: [0x49, 0x43, 0x20, 0x43, 0x41, 0x52, 0x44, 0x20, 0x43, 0x48, 0x45, 0x43, 0x4B],
+                  on: [0x51, 0x43, 0x20, 0x4D, 0x4F, 0x44, 0x45, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20]
+                }
+              ]
+            },
+            {
+              // Created by API (CrypticStorm)
+              name: '跳过全球匹配界面',
+              patches: [{offset: 0x315600, off: [0x4D], on: [0x4E]}]
+            },
+            {
+              // created by aixxe
+              name: '强制启用耳放',
+              tooltip: '强制启用耳机检测。适用于街机框体。',
+              patches: [
+                {offset: 0x20B418, off: [0x74, 0x05], on: [0x90, 0x90]},
+                {offset: 0x20B41F, off: [0x89, 0x5E, 0x48], on: [0x90, 0x90, 0x90]},
+              ]
+            },
+          ]),
+          new Patcher('soundvoltex.dll', "2018-10-23", [
+            {
+              name: '解锁全曲/全难度',
+              patches: [
+                {
+                  offset: 0x158052,
+                  off: [0xE8, 0x89, 0x5C, 0x02],
+                  on: [0xB8, 0x0D, 0x00, 0x00]
+                },
+                {
+                  offset: 0x1BE669,
+                  off: [0x8B, 0x44, 0x24, 0x20, 0xE8, 0x3E, 0xEB, 0xFF, 0xFF],
+                  on: [0xB8, 0x03, 0x00, 0x00, 0x00, 0x90, 0x90, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              name: '全曲目"Safe""',
+              tooltip: '血条归零不会闭店',
+              patches: [{offset : 0x179393, off: [0x32, 0xC0], on: [0xB0, 0x01]}]
+            },
+            {
+              name: '封面不显示“Safe”图标',
+              tooltip: '让你的眼睛不那么花',
+              patches: [{offset: 0x2FA1A8, off: [0x73], on: [0x00]}]
+            },
+            {
+              name: '阻止启动时更改系统音量',
+              tooltip: '若游戏启动时音量被拉满，请启用此选项。',
+              patches: [{offset: 0x2540BA, off: [0xE8, 0x21, 0x03, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              name: '以Event Mode模式启动',
+              patches: [{offset: 0x19DC52, off: [0x00], on: [0x01]}]
+            },
+            {
+              name: '关闭\"EVENT MODE/FREE PLAY\"字样显示',
+              patches: [{offset: 0xBF3A0, off: [0xE8, 0x0b], on: [0xEB, 0x03]}]
+            },
+            {
+              name: '启用Premium Free(伪)模式',
+              tooltip: '只保存分数，不会保存任务进度及个人设置。',
+              patches: [
+                {
+                  offset: 0x1D5BCF,
+                  off: [0x00],
+                  on: [0x02]
+                },
+                {
+                  offset: 0x1D5DB6,
+                  off: [0x8B, 0x83, 0x64, 0x10, 0x00, 0x00, 0x8D, 0x48, 0x01, 0x83, 0xF9, 0x04, 0x56, 0x57, 0x7F, 0x52],
+                  on: [0xB8, 0x01, 0x00, 0x00, 0x00, 0x89, 0x83, 0x64, 0x10, 0x00, 0x00, 0x90, 0x56, 0x57, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              name: '启用ARS (Alternative Rate System)',
+              patches: [{offset : 0x178AA4, off: [0x74], on : [0xEB]}]
+            },
+            {
+              name: '全模式冻结时间',
+              patches: [{offset: 0x776EB, off: [0x8B, 0x43, 0x60, 0x85, 0xC0, 0x74, 0x04], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              name: '困难血条从0%开始',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x11FE30, off: [0x10, 0x27], on: [0x01, 0x00]}]
+            },
+            {
+              name: '困难血条不回血',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x1202AA, off: [0x01, 0x50, 0x48], on: [0x90, 0x90, 0x90]}]
+            },
+            {
+              // Recreated by Cammy, original by Zelminar
+              name: '将Omega Dimension(船模式)特殊全球匹配界面设为默认',
+              patches: [{offset: 0x36D2D0, off: [0x64, 0x6B, 0x31, 0x10], on: [0xD8, 0x5E, 0x31, 0x10]}]
+            },
+            {
+              // Created by dogelition_man and Cammy
+              name: 'QC模式',
+              tooltip: '替换Test菜单中的IC Card Check',
+              patches: [
+                {offset: 0x4EB0, off: [0x6A, 0xFF, 0x68, 0x1B, 0xA4], on: [0xE9, 0xFB, 0x0B, 0x00, 0x00]},
+                {
+                  offset: 0x2FD0B8, //Replace text string
+                  off: [0x49, 0x43, 0x20, 0x43, 0x41, 0x52, 0x44, 0x20, 0x43, 0x48, 0x45, 0x43, 0x4B],
+                  on: [0x51, 0x43, 0x20, 0x4D, 0x4F, 0x44, 0x45, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20]
+                }
+              ]
+            },
+          ]),
+          new Patcher('soundvoltex.dll', "2018-08-21", [
+            {
+              name: '解锁全曲/全难度',
+              patches: [
+                {
+                  offset: 0x158052,
+                  off: [0xE8, 0x89, 0x5C, 0x02],
+                  on: [0xB8, 0x0D, 0x00, 0x00]
+                },
+                {
+                  offset: 0x1BE669,
+                  off: [0x8B, 0x44, 0x24, 0x20, 0xE8, 0x3E, 0xEB, 0xFF, 0xFF],
+                  on: [0xB8, 0x03, 0x00, 0x00, 0x00, 0x90, 0x90, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              name: '全曲目"Safe""',
+              tooltip: '血条归零不会闭店',
+              patches: [{offset : 0x179393, off: [0x32, 0xC0], on: [0xB0, 0x01]}]
+            },
+            {
+              name: '封面不显示“Safe”图标',
+              tooltip: '让你的眼睛不那么花',
+              patches: [{offset: 0x2FA0E8, off: [0x73], on: [0x00]}]
+            },
+            {
+              name: '阻止启动时更改系统音量',
+              tooltip: '若游戏启动时音量被拉满，请启用此选项。',
+              patches: [{offset: 0x2540BA, off: [0xE8, 0x21, 0x03, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              name: '以Event Mode模式启动',
+              patches: [{offset: 0x19DC52, off: [0x00], on: [0x01]}]
+            },
+            {
+              name: '关闭\"EVENT MODE/FREE PLAY\"字样显示',
+              patches: [{offset: 0xBF3A0, off: [0xE8, 0x0b], on: [0xEB, 0x03]}]
+            },
+            {
+              name: '启用Premium Free(伪)模式',
+              tooltip: '只保存分数，不会保存任务进度及个人设置。',
+              patches: [
+                {
+                  offset: 0x1D5BCF,
+                  off: [0x00],
+                  on: [0x02]
+                },
+                {
+                  offset: 0x1D5DB6,
+                  off: [0x8B, 0x83, 0x64, 0x10, 0x00, 0x00, 0x8D, 0x48, 0x01, 0x83, 0xF9, 0x04, 0x56, 0x57, 0x7F, 0x52],
+                  on: [0xB8, 0x01, 0x00, 0x00, 0x00, 0x89, 0x83, 0x64, 0x10, 0x00, 0x00, 0x90, 0x56, 0x57, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              name: '启用ARS (Alternative Rate System)',
+              patches: [{offset : 0x178AA4, off: [0x74], on : [0xEB]}]
+            },
+            {
+              name: '全模式冻结时间',
+              patches: [{offset: 0x776EB, off: [0x8B, 0x43, 0x60, 0x85, 0xC0, 0x74, 0x04], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              name: '困难血条从0%开始',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x11FE30, off: [0x10, 0x27], on: [0x01, 0x00]}]
+            },
+            {
+              name: '困难血条不回血',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x1202AA, off: [0x01, 0x50, 0x48], on: [0x90, 0x90, 0x90]}]
+            },
+            {
+              // Recreated by Cammy, original by Zelminar
+              name: '将Omega Dimension(船模式)特殊全球匹配界面设为默认',
+              patches: [{offset: 0x36D1E8, off: [0xA4, 0x6A, 0x31, 0x10], on: [0x18, 0x5E, 0x31, 0x10]}]
+            },
+            {
+              // Created by dogelition_man and Cammy
+              name: 'QC模式',
+              tooltip: '替换Test菜单中的IC Card Check',
+              patches: [
+                {offset: 0x4EB0, off: [0x6A, 0xFF, 0x68, 0x1B, 0xA4], on: [0xE9, 0xFB, 0x0B, 0x00, 0x00]},
+                {
+                  offset: 0x2FCFF8, //Replace text string
+                  off: [0x49, 0x43, 0x20, 0x43, 0x41, 0x52, 0x44, 0x20, 0x43, 0x48, 0x45, 0x43, 0x4B],
+                  on: [0x51, 0x43, 0x20, 0x4D, 0x4F, 0x44, 0x45, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20]
+                }
+              ]
+            },
+          ]),
+          new Patcher('soundvoltex.dll', "2018-06-05", [
+            {
+              name: '解锁全曲/全难度',
+              patches: [
+                {offset: 0x157F52, off: [0xE8, 0x89, 0x58, 0x02], on: [0xB8, 0x0D, 0x00, 0x00]},
+                {
+                  offset: 0x1BBD59,
+                  off: [0x8B, 0x44, 0x24, 0x20, 0xE8, 0x3E, 0xEB, 0xFF, 0xFF],
+                  on: [0xB8, 0x03, 0x00, 0x00, 0x00, 0x90, 0x90, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              name: '全曲目"Safe""',
+              tooltip: '血条归零不会闭店',
+              patches: [{offset: 0x178EF3, off: [0x32, 0xC0], on: [0xB0, 0x01]}]
+            },
+            {
+              // Ported by someone
+              // Created by mon
+              name: '封面不显示“Safe”图标',
+              tooltip: '让你的眼睛不那么花',
+              patches: [{offset: 0x2F62B8, off: [0x73], on: [0x00]}]
+            },
+            {
+              name: '阻止启动时更改系统音量',
+              tooltip: '若游戏启动时音量被拉满，请启用此选项。',
+              patches: [{offset: 0x2509fa, off: [0xE8, 0x21, 0x03, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              name: '以Event Mode模式启动',
+              patches: [{offset: 0x19d563, off: [0x00], on: [0x01]}]
+            },
+            {
+              name: '启用Premium Free(伪)模式',
+              tooltip: '只保存分数，不会保存任务进度及个人设置。',
+              patches: [
+                // Augmented by mon to work offline too
+                {offset: 0x1D322F, off: [0x00], on: [0x02]},
+                {
+                  offset: 0x1D33F6,
+                  off: [0x8B, 0x83, 0x64, 0x10, 0x00, 0x00, 0x8D, 0x48, 0x01, 0x83, 0xF9, 0x04, 0x56, 0x57, 0x7F, 0x52],
+                  on: [0xB8, 0x01, 0x00, 0x00, 0x00, 0x89, 0x83, 0x64, 0x10, 0x00, 0x00, 0x90, 0x56, 0x57, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              // Ported by someone
+              // Created by mon
+              name: '启用ARS (Alternative Rate System)',
+              patches: [{offset: 0x178604, off: [0x74], on: [0xEB]}]
+            },
+            {
+              // Ported by someone
+              // Created by runner38
+              name: '全模式冻结时间',
+              patches: [{offset: 0x7794B, off: [0x8B, 0x43, 0x60, 0x85, 0xC0, 0x74, 0x04], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              // Ported by someone
+              // Created by runner38
+              name: '困难血条从0%开始',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x120090, off: [0x10, 0x27], on: [0x01, 0x00]}]
+            },
+            {
+              // Ported by someone
+              // Created by runner38
+              name: '困难血条不回血',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x12050A, off: [0x01, 0x50, 0x48], on: [0x90, 0x90, 0x90]}]
+            },
+            {
+              // Recreated by Cammy, original by Zelminar
+              name: '将Omega Dimension(船模式)特殊全球匹配界面设为默认',
+              patches: [{offset: 0x368228, off: [0x88, 0x35, 0x31, 0x10], on: [0xFC, 0x28, 0x31, 0x10]}]
+            },
+            {
+              // Created by dogelition_man and Cammy
+              name: 'QC模式',
+              tooltip: '替换Test菜单中的IC Card Check',
+              patches: [
+                {offset: 0x4EB0, off: [0x6A, 0xFF, 0x68, 0x0B, 0x6D], on: [0xE9, 0xFB, 0x0B, 0x00, 0x00]},
+                {
+                  offset: 0x2F9230, //Replace text string
+                  off: [0x49, 0x43, 0x20, 0x43, 0x41, 0x52, 0x44, 0x20, 0x43, 0x48, 0x45, 0x43, 0x4B],
+                  on: [0x51, 0x43, 0x20, 0x4D, 0x4F, 0x44, 0x45, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20]
+                }
+              ]
+            },
+          ]),
+          new Patcher('soundvoltex.dll', "2018-01-16 with Enhanced Continue", [
+            {
+              // Credit to kacklappen23
+              name: '解锁全曲/全难度',
+              patches: [
+                {offset: 0x154C72, off: [0xE8, 0xA9, 0x44, 0x02], on: [0xB8, 0x0D, 0x00, 0x00]},
+                {
+                  offset: 0x1B7A79,
+                  off: [0x8B, 0x44, 0x24, 0x20, 0xE8, 0x3E, 0xEB, 0xFF, 0xFF],
+                  on: [0xB8, 0x03, 0x00, 0x00, 0x00, 0x90, 0x90, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              name: '全曲目"Safe""',
+              tooltip: '血条归零不会闭店',
+              patches: [{offset: 0x1748EB, off: [0x32, 0xC0], on: [0xB0, 0x01]}]
+            },
+            {
+              // Created by mon
+              name: '封面不显示“Safe”图标',
+              tooltip: '让你的眼睛不那么花',
+              patches: [{offset: 0x2EE860, off: [0x73], on: [0x00]}]
+            },
+            {
+              name: '以Event Mode模式启动',
+              patches: [{offset: 0x1992B2, off: [0x00], on: [0x01]}]
+            },
+            {
+              // created by zini
+              // ported by kacklappen23
+              name: '关闭\"EVENT MODE/FREE PLAY\"字样显示',
+              patches: [{offset: 0xBEEF0, off: [0xE8, 0x2B], on: [0xEB, 0x03]}]
+            },
+            {
+              name: '启用Premium Free(伪)模式',
+              tooltip: '只保存分数，不会保存任务进度及个人设置。',
+              patches: [
+                {offset: 0x1CEE4F, off: [0x00], on: [0x02]},
+                {
+                  offset: 0x1CF016,
+                  off: [0x8B, 0x83, 0x64, 0x10, 0x00, 0x00, 0x8D, 0x48, 0x01, 0x83, 0xF9, 0x04, 0x56, 0x57, 0x7F, 0x52],
+                  on: [0xB8, 0x01, 0x00, 0x00, 0x00, 0x89, 0x83, 0x64, 0x10, 0x00, 0x00, 0x90, 0x56, 0x57, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              // thanks Element4521
+              name: '启用ARS (Alternative Rate System)',
+              patches: [{offset: 0x174004, off: [0x74], on: [0xEB]}]
+            },
+            {
+              // Created by runner38
+              name: '全模式冻结时间',
+              patches: [{offset: 0x7749B, off: [0x8B, 0x43, 0x60, 0x85, 0xC0, 0x74, 0x04], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              // Created by zini
+              name: '隐藏PASELI字样显示',
+              patches: [{offset: 0xBEF2D, off: [0x0F, 0x84], on: [0x90, 0xE9]}]
+            },
+            {
+              // Recreated by Cammy, original by Zelminar
+              name: '将Omega Dimension(船模式)特殊全球匹配界面设为默认',
+              patches: [{offset: 0x35E418, off: [0x98, 0xA8, 0x30, 0x10], on: [0x0C, 0x9C, 0x30, 0x10]}]
+            },
+            {
+              // Created by dogelition_man and Cammy
+              name: 'QC模式',
+              tooltip: '替换Test菜单中的IC Card Check',
+              patches: [
+                {offset: 0x4EB0, off: [0x6A, 0xFF, 0x68, 0xEB, 0xF9], on: [0xE9, 0xFB, 0x0B, 0x00, 0x00]},
+                {
+                  offset: 0x2F17C0, //Replace text string
+                  off: [0x49, 0x43, 0x20, 0x43, 0x41, 0x52, 0x44, 0x20, 0x43, 0x48, 0x45, 0x43, 0x4B],
+                  on: [0x51, 0x43, 0x20, 0x4D, 0x4F, 0x44, 0x45, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20]
+                }
+              ]
+            },
+          ]),
+          new Patcher('soundvoltex.dll', "2018-01-16", [
+            {
+              name: '解锁全曲/全难度',
+              patches: [{offset: 0x1531F2, off: [0xE8, 0x09, 0x43, 0x02], on: [0xB8, 0x0D, 0x00, 0x00]},
+                {
+                  offset: 0x1B5F39,
+                  off: [0x8B, 0x44, 0x24, 0x20, 0xE8, 0x3E, 0xEB, 0xFF, 0xFF],
+                  on: [0xB8, 0x03, 0x00, 0x00, 0x00, 0x90, 0x90, 0x90, 0x90]
+                }]
+            },
+            {
+              name: '全曲目"Safe""',
+              tooltip: '血条归零不会闭店',
+              patches: [{offset: 0x172CDB, off: [0x32, 0xC0], on: [0xB0, 0x01]}]
+            },
+            {
+              // Created by mon
+              name: '封面不显示“Safe”图标',
+              tooltip: '让你的眼睛不那么花',
+              patches: [{offset: 0x2EB3EC, off: [0x73], on: [0x00]}]
+            },
+            {
+              name: '以Event Mode模式启动',
+              patches: [{offset: 0x1977D3, off: [0x00], on: [0x01]}]
+            },
+            {
+              name: '启用Premium Free(伪)模式',
+              tooltip: '只保存分数，不会保存任务进度及个人设置。',
+              patches: [
+                {offset: 0x1CC10F, off: [0x00], on: [0x02]},
+                {
+                  offset: 0x1CC2D6,
+                  off: [0x8B, 0x83, 0x64, 0x10, 0x00, 0x00, 0x8D, 0x48, 0x01, 0x83, 0xF9, 0x04, 0x56, 0x57, 0x7F, 0x52],
+                  on: [0xB8, 0x01, 0x00, 0x00, 0x00, 0x89, 0x83, 0x64, 0x10, 0x00, 0x00, 0x90, 0x56, 0x57, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              // Created by zini
+              name: '隐藏PASELI字样显示',
+              patches: [{offset: 0xBD3BD, off: [0x0F, 0x84], on: [0x90, 0xE9]}]
+            },
+            {
+              // Recreated by Cammy, original by Zelminar
+              name: '将Omega Dimension(船模式)特殊全球匹配界面设为默认',
+              patches: [{offset: 0x35A7E8, off: [0x88, 0x74, 0x30, 0x10], on: [0xE4, 0x68, 0x30, 0x10]}]
+            },
+            {
+              // Created by dogelition_man and Cammy
+              name: 'QC模式',
+              tooltip: '替换Test菜单中的IC Card Check',
+              patches: [
+                {offset: 0x4EB0, off: [0x6A, 0xFF, 0x68, 0x0B, 0xCB], on: [0xE9, 0xFB, 0x0B, 0x00, 0x00]},
+                {
+                  offset: 0x2EE330, //Replace text string
+                  off: [0x49, 0x43, 0x20, 0x43, 0x41, 0x52, 0x44, 0x20, 0x43, 0x48, 0x45, 0x43, 0x4B],
+                  on: [0x51, 0x43, 0x20, 0x4D, 0x4F, 0x44, 0x45, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20]
+                }
+              ]
+            },
+          ]),
+          // all patches ported to IV by Zelminar unless specified otherwise
+          // all original patches created by DJH unless specified otherwise
+          new Patcher('soundvoltex.dll', "2017-11-28", [
+            {
+              name: '解锁全曲/全难度',
+              patches: [
+                {offset: 0x152142, off: [0xE8, 0xF9, 0x41, 0x02], on: [0xB8, 0x0D, 0x00, 0x00]},
+                {
+                  offset: 0x1B4A31,
+                  off: [0x8B, 0x44, 0x24, 0x20, 0xE8, 0xA6, 0xEC, 0xFF, 0xFF],
+                  on: [0xB8, 0x03, 0x00, 0x00, 0x00, 0x90, 0x90, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              name: '全曲目"Safe""',
+              tooltip: '血条归零不会闭店',
+              patches: [{offset: 0x171B07, off: [0x32, 0xC0], on: [0xB0, 0x01]}]
+            },
+            {
+              // Created by mon
+              name: '封面不显示“Safe”图标',
+              tooltip: '让你的眼睛不那么花',
+              patches: [{offset: 0x2E9C44, off: [0x73], on: [0x00]}]
+            },
+            {
+              name: '阻止启动时更改系统音量',
+              tooltip: '若游戏启动时音量被拉满，请启用此选项。',
+              patches: [{offset: 0x2451EA, off: [0xE8, 0x21, 0x03, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              name: '以Event Mode模式启动',
+              patches: [{offset: 0x196562, off: [0x00], on: [0x01]}]
+            },
+            {
+              // created by zini
+              name: '关闭\"EVENT MODE/FREE PLAY\"字样显示',
+              patches: [{offset: 0xBC920, off: [0xE8, 0x6B], on: [0xEB, 0x03]}]
+            },
+            {
+              name: '启用Premium Free(伪)模式',
+              tooltip: '只保存分数，不会保存任务进度及个人设置。',
+              patches: [
+                {offset: 0x1CAAFF, off: [0x00], on: [0x02]},
+                {
+                  offset: 0x1CACC6,
+                  off: [0x8B, 0x83, 0x64, 0x10, 0x00, 0x00, 0x8D, 0x48, 0x01, 0x83, 0xF9, 0x04, 0x56, 0x57, 0x7F, 0x52],
+                  on: [0xB8, 0x01, 0x00, 0x00, 0x00, 0x89, 0x83, 0x64, 0x10, 0x00, 0x00, 0x90, 0x56, 0x57, 0x90, 0x90]
+                }
+              ]
+            },
+            {
+              // Created by mon
+              name: '将Hi-Speed范围设为0.1至20.0',
+              patches: [
+                {offset: 0x12198B, off: [0xDD, 0x05, 0xF8, 0x87, 0x2D, 0x10], on: [0xD9, 0x05, 0xA0, 0x89, 0x2D, 0x10]},
+                {offset: 0x1219A0, off: [0xDD, 0x05, 0x00, 0x88, 0x2D, 0x10], on: [0xD9, 0x05, 0xE4, 0x86, 0x2D, 0x10]},
+                {offset: 0x1211C1, off: [0xDD, 0x05, 0xF8, 0x87, 0x2D, 0x10], on: [0xD9, 0x05, 0xA0, 0x89, 0x2D, 0x10]},
+                {offset: 0x1211BB, off: [0xDD, 0x05, 0x00, 0x88, 0x2D, 0x10], on: [0xD9, 0x05, 0xE4, 0x86, 0x2D, 0x10]}
+              ]
+            },
+            {
+              // thanks Element4521
+              name: '启用ARS (Alternative Rate System)',
+              patches: [{offset: 0x171274, off: [0x74], on: [0xEB]}]
+            },
+            {
+              // Created by runner38
+              name: '困难血条从0%开始',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x11ACD0, off: [0x10, 0x27], on: [0x01, 0x00]}]
+            },
+            {
+              // Created by runner38
+              name: '困难血条不回血',
+              tooltip: '影响所有困难血条',
+              patches: [{offset: 0x11B14A, off: [0x01, 0x50, 0x48], on: [0x90, 0x90, 0x90]}]
+            },
+            {
+              // Created by runner38
+              name: '移除Combo/Chain显示',
+              patches: [{offset: 0x1220B1, off: [0x8B, 0x45, 0x08], on: [0x90, 0x90, 0x90]}]
+            },
+            {
+              // Created by Zelminar
+              name: '将Omega Dimension(船模式)特殊全球匹配界面设为默认',
+              patches: [{offset: 0x358B40, off: [0xDC, 0x5F, 0x30, 0x10], on: [0x38, 0x54, 0x30, 0x10]}]
+            },
+            {
+              // Created by runner38
+              name: '全模式冻结时间',
+              patches: [{offset: 0x75C1B, off: [0x8B, 0x43, 0x60, 0x85, 0xC0, 0x74, 0x04], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
+            },
+            {
+              // Created by dogelition_man and Cammy
+              name: 'QC模式',
+              tooltip: '替换Test菜单中的IC Card Check',
+              patches: [
+                {offset: 0x4EE0, off: [0x6A, 0xFF, 0x68, 0x6B, 0xB4], on: [0xE9, 0xFB, 0x0B, 0x00, 0x00]},
+                {
+                  offset: 0x2ECB60, //Replace text string
+                  off: [0x49, 0x43, 0x20, 0x43, 0x41, 0x52, 0x44, 0x20, 0x43, 0x48, 0x45, 0x43, 0x4B],
+                  on: [0x51, 0x43, 0x20, 0x4D, 0x4F, 0x44, 0x45, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20]
+                }
+              ]
+            },
+         ])
+        ]);
+      });
+    </script>
+</head>
+<body>
+<h1>SDVX IV DLL Modder</h1>
+</body>
+</html>
