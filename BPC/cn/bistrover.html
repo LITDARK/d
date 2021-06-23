@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
   <head>
     <meta charset="utf-8" />
     <title>IIDX BISTROVER DLL Modder</title>
@@ -16,17 +16,17 @@
                 //LDJ-2021042600
                 new Patcher("bm2dx.dll", "2021-04-26", [
                     {
-                        name: "SSE4.2 Fix",
+                        name: "修复SSE4.2指令集",
                         patches: [
                             { offset: 0x20A454, off: [0xF3, 0x45, 0x0F], on: [0x90, 0x90, 0x90] },
                         ],
                     },
                     {
-                        name: "Skip Camera Error",
+                        name: "跳过摄像头错误界面",
                         patches: [{ offset: 0x6B231B, off: [0x84], on: [0x81] }],
                     },
                     {
-                        name: "Force 120hz timing and adapter mode in LDJ (Experimental)",
+                        name: "为LDJ(旧框)强制启用120Hz刷新率(实验)",
                         patches: [
                             { offset: 0x3C6063, off: [0x75], on: [0xeb] },
                             { offset: 0x771A5E, off: [0x3c], on: [0x78] },
@@ -34,7 +34,7 @@
                         ],
                     },
                     {
-                        name: "Shim Lightning Mode IO (for spicetools)",
+                        name: "启用Lighting模式IO (用于Spicetools)",
                         patches: [
                             {
                                 offset: 0x715FBE,
@@ -46,13 +46,13 @@
                         ],
                     },
                     {
-                        name: "Bypass lightning monitor error",
+                        name: "忽略TDJ(雷霆框)显示器检测错误",
                         patches: [
                             { offset: 0x6A4D91, off: [0x0f, 0x85], on: [0x90, 0xe9] },
                         ],
                     },
                     {
-                        name: "Force LDJ software video decoder for all boot modes",
+                        name: "在所有模式下强制使用LDJ软件视频解码器",
                         patches: [
                             {
                                 offset: 0x715FB7,
@@ -62,7 +62,7 @@
                         ],
                     },
                     {
-                        name: "Unscramble touch screen keypad in TDJ",
+                        name: "TDJ模式下不打乱副屏小键盘",
                         patches: [
                             {
                                 offset: 0x7488F5,
@@ -72,7 +72,7 @@
                         ],
                     },
                     {
-                        name: "1P Premium Free",
+                        name: "启用1P的Premium Free模式",
                         patches: [
                             {
                                 offset: 0x65BD64,
@@ -82,7 +82,7 @@
                         ],
                     },
                     {
-                        name: "2P Premium Free",
+                        name: "启用2P的Premium Free模式",
                         patches: [
                             {
                                 offset: 0x65BF15,
@@ -94,19 +94,17 @@
                         ],
                     },
                     {
-                        name: "Premium Free Timer Freeze",
-                        tooltip:
-                            "Freezes the timer in PREMIUM FREE mode, allowing unlimited play until exit",
+                        name: "冻结Premium Free模式时间",
                         patches: [{ offset: 0x42E5DD, off: [0x7e], on: [0xeb] }],
                     },
                     {
-                        name: "Unlock All Songs",
+                        name: "解锁全曲",
                         patches: [
                             { offset: 0x429D49, off: [0x75, 0x24], on: [0x90, 0x90] },
                         ],
                     },
                     {
-                        name: "Unlock All 12s",
+                        name: "解锁所有12级歌曲",
                         patches: [
                             {
                                 offset: 0x429AF0,
@@ -116,7 +114,7 @@
                         ],
                     },
                     {
-                        name: "Skip Decide Screen",
+                        name: "跳过选择界面",
                         patches: [
                             {
                                 offset: 0x348980,
@@ -126,8 +124,8 @@
                         ],
                     },
                     {
-                        name: "CS-style song start delay",
-                        tooltip : "Holding Start will pause the song at the beginning until you release it",
+                        name: "家用风格开始前延迟",
+                        tooltip : "游戏开始前按住Start将暂停歌曲，直到你松开它。",
                         patches: [
                             {
                                 offset: 0x68D453,
@@ -137,34 +135,34 @@
                         ],
                     },
                     {
-                        name: "Cursor Lock",
+                        name: "锁定光标",
                         patches: [
                             { offset: 0x662ECF, off: [0x74, 0x1f], on: [0x90, 0x90] },
                         ],
                     },
                     {
-                        name: "Quick Retry",
+                        name: "快速重开",
                         patches: [
                             { offset: 0x40E36F, off: [0x32, 0xC0], on: [0xB0, 0x01] },
                         ],
                     },
                     {
-                        name: "Standard/Menu Timer Freeze",
+                        name: "冻结菜单/标准模式时间",
                         patches: [{ offset: 0x6D6B77, off: [0x74], on: [0xeb] }],
                     },
                     {
-                        name: "WASAPI Shared Mode (with 44100Hz)",
+                        name: "启用共享模式WASAPI(44100Hz 16bit)",
                         patches: [{ offset: 0x20A541, off: [0x01], on: [0x00] }],
                     },
                     {
-                        name: "Always show FAST/SLOW total",
+                        name: "默认显示FAST/SLOW总数",
                         patches: [
                             { offset: 0x678863, off: [0x74], on: [0x75] },
                             { offset: 0x678A80, off: [0x74], on: [0x75] },
                         ],
                     },
                     {
-                        name: "Hide all bottom text",
+                        name: "隐藏所有底部文字",
                         patches: [
                             { offset: 0x32EA01, off: [0x7F, 0x12, 0x44, 0x8B, 0xCB, 0x4C, 0x8D, 0x05, 0xBB, 0x06, 0x63, 0x00], on: [0x90, 0xE9, 0x22, 0x00, 0x00, 0x00, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }, //EXTRA PASELI: %d
                             { offset: 0x32EDBD, off: [0xE8, 0xAE, 0xAF, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90] }, //INSERT COIN[S]
@@ -175,8 +173,7 @@
                         ],
                     },
                     {
-                        name: "FREE PLAY text to LED ticker",
-                        tooltip: "Song Title/Ticker information will display instead of FREEPLAY",
+                        name: "将右下角的FREE PLAY字样替换为米字屏信息",
                         patches: [
                             { offset: 0x32EABF, off: [0xAD, 0x05, 0x63, 0x00], on: [0x49, 0x56, 0x00, 0x05] },
                         ],
