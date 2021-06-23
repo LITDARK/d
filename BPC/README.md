@@ -2,7 +2,7 @@
 
 A Custom version of BEMANIPatcher. Added support for some "N-0" games.
 
-Live version hosted on [my blog](https://LITDARK.cn/BPC/) and [mon's website](https://mon.im/bemanipatcher/)
+Live version hosted on [my blog](https://LITDARK.cn/BPC/) and [mon's website](https://mon.im/bemanipatcher/).
 
 Edited by LITDARK. Original README file below.
 
