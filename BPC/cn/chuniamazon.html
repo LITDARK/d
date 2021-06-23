@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
     <head>
         <meta charset="utf-8">
         <title>CHUNITHM AMAZON Modder</title>
@@ -16,7 +16,7 @@
                 new Patcher("chuniApp.exe", "(1.35.00) AMAZON PLUS", [
                     {
                         // mon
-                        name: "Allow 127.0.0.1/localhost as the network server",
+                        name: "允许使用127.0.0.1/localhost作为服务器地址",
                         patches: [
                             {offset: 0x8DF380, off: [0x55, 0x8B, 0xEC], on: [0x31, 0xC0, 0xC3]},
                             {offset: 0x1693DA8, off: [0x31, 0x32, 0x37, 0x2F], on: [0x30, 0x2F, 0x38, 0x00]}
@@ -24,8 +24,8 @@
                     },
                     {
                         // mon
-                        name: "Disable shop close lockout",
-                        tooltip: "Disables ~12-8am lockout. Does not disable maint lockout from 6:30-7am JST",
+                        name: "关闭夜间闭店设置",
+                        tooltip: "关闭凌晨12点至次日早8点的强制闭店，但无法跳过日本时间早6:30至7点的维护时间",
                         patches: [
                             {offset: 0x906FD3, off: [0x74], on: [0xEB]},
                         ],
@@ -41,23 +41,23 @@
                     */
                     {
                         // somewhatlurker
-                        name: "Force shared audio mode, system audio samplerate must be 48000",
-                        tooltip: "Improves compatibility but may increase latency",
+                        name: "启用共享音频，音频采样率必须为48000Hz",
+                        tooltip: "改善兼容性但可能增加延迟",
                         patches: [
                             {offset: 0xCA9E1A, off: [0x01], on: [0x00]},
                         ],
                     },
                     {
                         // somewhatlurker
-                        name: "Force 2 channel audio output",
+                        name: "强制使用双声道输出",
                         patches: [
                             {offset: 0xCA9EF1, off: [0x75, 0x3F], on: [0x90, 0x90]},
                         ],
                     },
                     {
                         // maybenotuseful
-                        name: "Patch for Windows 7",
-                        tooltip: "May not be able to connect to the server",
+                        name: "兼容WIndows 7系统",
+                        tooltip: "可能无法连接到服务器",
                         patches: [
                             {offset: 0x19ff4e8, off: [0x45, 0x78], on: [0x5F, 0x41]},
                             {offset: 0x19ff4f1, off: [0x43, 0x61, 0x6E, 0x63, 0x65, 0x6C, 0x51, 0x75, 0x65, 0x72, 0x79], on: [0x51, 0x75, 0x65, 0x72, 0x79, 0x5F, 0x41, 0x00, 0x00, 0x00, 0x00]},
@@ -65,46 +65,46 @@
                     },
                     {
                         // lybxlpsv
-                        name: "Disable Song Select Timer",
-                        tooltip: "May only work when playing with card.",
+                        name: "关闭选歌倒计时",
+                        tooltip: "可能只对刷卡游玩有效",
                         patches: [
                             {offset: 0x722ED2, off: [0x74], on: [0xEB]},
                         ],
                     },
                     {
                         // esterTion
-                        name: "Set All Timers to 999",
+                        name: "设置所有倒计时为999",
                         patches: [
                             {offset: 0x5DF750, off: [0x8B, 0x44, 0x24, 0x04, 0x69, 0xC0, 0xE8, 0x03, 0x00, 0x00], on: [0xB8, 0x58, 0x3E, 0x0F, 0x00, 0x90, 0x90, 0x90, 0x90, 0x90]},
                         ],
                     },
                     {
                         // lin714093880 & esterTion
-                        name: "Patch for head-to-head play",
-                        tooltip: "Fix infinite sync while trying to connect to head to head play.",
+                        name: "修复点对点游玩",
+                        tooltip: "修复点对点游玩时的无限同步",
                         patches: [
                             {offset: 0x44CBA3, off: [0x01], on: [0x00]},
                         ]
                     },
                     {
                         // esterTion
-                        name: "Increase max credits to 254",
+                        name: "最大Credits数量增至254",
                         patches: [
                             {offset: 0xBF6177, off: [0x8A, 0x5D, 0x14], on: [0xB3, 0xFE, 0x90]},
                         ],
                     },
                     {
                         // esterTion
-                        name: "Free Play",
-                        tooltip: "Endless credits",
+                        name: "启用FREE PLAY模式",
+                        tooltip: "无限Credits",
                         patches: [
                             {offset: 0xBF6595, off: [0x28], on: [0x08]},
                         ],
                     },
                     {
                         // esterTion
-                        name: "Dummy LED",
-                        tooltip: "Skip LED board check",
+                        name: "虚拟LED",
+                        tooltip: "跳过LED自检",
                         patches: [
                             {offset: 0x2499C7, off: [0x00], on: [0x01]},
                         ],
@@ -113,7 +113,7 @@
                 new Patcher("chuniApp.exe", "(1.30.00) AMAZON", [
                     {
                         // mon
-                        name: "Allow 127.0.0.1/localhost as the network server",
+                        name: "允许使用127.0.0.1/localhost作为服务器地址",
                         patches: [
                             {offset: 0x8BC180, off: [0x55, 0x8B, 0xEC], on: [0x31, 0xC0, 0xC3]},
                             {offset: 0x164D0E0, off: [0x31, 0x32, 0x37, 0x2F], on: [0x30, 0x2F, 0x38, 0x00]}
@@ -121,38 +121,38 @@
                     },
                     {
                         // mon
-                        name: "Disable shop close lockout",
-                        tooltip: "Disables ~12-8am lockout. Does not disable maint lockout from 6:30-7am JST",
+                        name: "关闭夜间闭店设置",
+                        tooltip: "关闭凌晨12点至次日早8点的强制闭店，但无法跳过日本时间早6:30至7点的维护时间",
                         patches: [
                             {offset: 0x8E3DD3, off: [0x74], on: [0xEB]},
                         ],
                     },
                     {
                         // mon
-                        name: "Disable update check (faster boot)",
+                        name: "关闭升级检测(加快启动速度)",
                         patches: [
                             {offset: 0x8AE690, off: [0xA1, 0x54, 0x88], on: [0x31, 0xC0, 0xC3]},
                         ],
                     },
                     {
                         // somewhatlurker
-                        name: "Force shared audio mode, system audio samplerate must be 48000",
-                        tooltip: "Improves compatibility but may increase latency",
+                        name: "启用共享音频，音频采样率必须为48000Hz",
+                        tooltip: "改善兼容性但可能增加延迟",
                         patches: [
                             {offset: 0xC77D1A, off: [0x01], on: [0x00]},
                         ],
                     },
                     {
                         // somewhatlurker
-                        name: "Force 2 channel audio output",
+                        name: "强制使用双声道输出",
                         patches: [
                             {offset: 0xC77DF1, off: [0x75, 0x3F], on: [0x90, 0x90]},
                         ],
                     },
                     {
                         // maybenotuseful
-                        name: "Patch for Windows 7",
-                        tooltip: "May not be able to connect to the server",
+                        name: "兼容WIndows 7系统",
+                        tooltip: "可能无法连接到服务器",
                         patches: [
                             {offset: 0x19B0AAE, off: [0x45, 0x78], on: [0x5F, 0x41]},
                             {offset: 0x19B0AB7, off: [0x43, 0x61, 0x6E, 0x63, 0x65, 0x6C, 0x51, 0x75, 0x65, 0x72, 0x79], on: [0x51, 0x75, 0x65, 0x72, 0x79, 0x5F, 0x41, 0x00, 0x00, 0x00, 0x00]},
@@ -160,46 +160,46 @@
                     },
                     {
                         // lybxlpsv
-                        name: "Disable Song Select Timer",
-                        tooltip: "May only work when playing with card.",
+                        name: "关闭选歌倒计时",
+                        tooltip: "可能只对刷卡游玩有效",
                         patches: [
                             {offset: 0x6FFC62, off: [0x74], on: [0xEB]},
                         ],
                     },
                     {
                         // esterTion
-                        name: "Set All Timers to 999",
+                        name: "设置所有倒计时为999",
                         patches: [
                             {offset: 0x5C30E0, off: [0x8B, 0x44, 0x24, 0x04, 0x69, 0xC0, 0xE8, 0x03, 0x00, 0x00], on: [0xB8, 0x58, 0x3E, 0x0F, 0x00, 0x90, 0x90, 0x90, 0x90, 0x90]},
                         ],
                     },
                     {
                         // lin714093880 & esterTion
-                        name: "Better patch for head-to-head play",
-                        tooltip: "Fix infinite sync while trying to connect to head to head play.",
+                        name: "修复点对点游玩",
+                        tooltip: "修复点对点游玩时的无限同步",
                         patches: [
                             {offset: 0x440CD3, off: [0x01], on: [0x00]},
                         ]
                     },
                     {
                         // esterTion
-                        name: "Increase max credits to 254",
+                        name: "最大Credits数量增至254",
                         patches: [
                             {offset: 0xBC4B37, off: [0x8A, 0x5D, 0x14], on: [0xB3, 0xFE, 0x90]},
                         ],
                     },
                     {
                         // esterTion
-                        name: "Free Play",
-                        tooltip: "Endless credits",
+                        name: "启用FREE PLAY模式",
+                        tooltip: "无限Credits",
                         patches: [
                             {offset: 0xBC4F55, off: [0x28], on: [0x08]},
                         ],
                     },
                     {
                         // esterTion
-                        name: "Dummy LED",
-                        tooltip: "Skip LED board check",
+                        name: "虚拟LED",
+                        tooltip: "跳过LED自检",
                         patches: [
                             {offset: 0x244AE7, off: [0x00], on: [0x01]},
                         ],
