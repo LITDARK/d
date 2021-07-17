@@ -179,6 +179,168 @@
                         ],
                     },
                 ]),
+                new Patcher("bm2dx.dll", "2021-07-12", [
+                    {
+                        name: "修复SSE4.2指令集",
+                        patches: [
+                            { offset: 0x28C714, off: [0xF3, 0x45, 0x0F], on: [0x90, 0x90, 0x90] },
+                        ],
+                    },
+                    {
+                        name: "跳过摄像头错误界面",
+                        patches: [{ offset: 0x752CBB, off: [0x84], on: [0x81] }],
+                    },
+                    {
+                        name: "为LDJ(旧框)强制启用120Hz刷新率(实验)",
+                        patches: [
+                            { offset: 0x45ECE3, off: [0x75], on: [0xeb] },
+                            { offset: 0x8537FE, off: [0x3c], on: [0x78] },
+                            { offset: 0x8539E9, off: [0x74, 0x03], on: [0x90, 0x90] },
+                        ],
+                    },
+                    {
+                        name: "启用Lighting模式IO (用于Spicetools)",
+                        patches: [
+                            {
+                                offset: 0x7BB07E,
+                                off: [0x0f, 0x84, 0x8d, 0x00, 0x00, 0x00],
+                                on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90],
+                            },
+                            { offset: 0x86DDA4, off: [0x0f, 0x84], on: [0x90, 0xe9] },
+                            { offset: 0x86E510, off: [0x9c, 0xe4], on: [0x3c, 0xdd] },
+                        ],
+                    },
+                    {
+                        name: "忽略TDJ(雷霆框)显示器检测错误",
+                        patches: [
+                            { offset: 0x745A31, off: [0x0f, 0x85], on: [0x90, 0xe9] },
+                        ],
+                    },
+                    {
+                        name: "在所有模式下强制使用LDJ软件视频解码器",
+                        patches: [
+                            {
+                                offset: 0x7BB07A,
+                                off: [0x02],
+                                on: [0x05],
+                            },
+                        ],
+                    },
+                    {
+                        name: "TDJ模式下不打乱副屏小键盘",
+                        patches: [
+                            {
+                                offset: 0x7FA095,
+                                off: [0x4d, 0x03, 0xc8, 0x49, 0xf7, 0xf1],
+                                on: [0xba, 0x0c, 0x00, 0x00, 0x00, 0x90],
+                            },
+                        ],
+                    },
+                    {
+                        name: "启用1P的Premium Free模式",
+                        patches: [
+                            {
+                                offset: 0x6FA329,
+                                off: [0x75],
+                                on: [0xEB],
+                            },
+                        ],
+                    },
+                    {
+                        name: "启用2P的Premium Free模式",
+                        patches: [
+                            {
+                                offset: 0x6FA540,
+                                off: [0x74, 0x56],
+                                on: [0x90, 0x90],
+                            },
+                            { offset: 0x6FA52A, off: [0x74, 0x6c], on: [0x90, 0x90] },
+
+                        ],
+                    },
+					{
+                        name: "强制启用2P的ARENA模式",
+                        patches: [
+                            { offset: 0x6FA555, off: [0x75, 0x41], on: [0x90, 0x90] },
+
+                        ],
+                    },
+					{
+                        name: "强制启用BPL(B***** PRO LEAGUE)对战模式",
+                        patches: [
+                            { offset: 0x6FA57A, off: [0x74, 0x1c], on: [0x90, 0x90] },
+
+                        ],
+                    },
+                    {
+                        name: "冻结Premium Free模式时间",
+                        patches: [{ offset: 0x4CB5ED, off: [0x7e], on: [0xeb] }],
+                    },
+                    {
+                        name: "解锁全曲",
+                        patches: [
+                            { offset: 0x4C6108, off: [0x75, 0x2d], on: [0x90, 0x90] },
+                        ],
+                    },
+                    {
+                        name: "解锁所有12级歌曲",
+                        patches: [
+                            {
+                                offset: 0x4C5EA0,
+                                off: [0x83, 0xff, 0x03, 0x74, 0x05, 0x83, 0xff, 0x08],
+                                on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90],
+                            },
+                        ],
+                    },
+                    {
+                        name: "跳过选择界面",
+                        patches: [
+                            {
+                                offset: 0x3CD510,
+                                off: [0xe8, 0x6b, 0x00, 0x00, 0x00],
+                                on: [0x90, 0x90, 0x90, 0x90, 0x90],
+                            },
+                        ],
+                    },
+                    {
+                        name: "家用风格开始前延迟",
+                        tooltip : "游戏开始前按住Start将暂停歌曲，直到你松开它。",
+                        patches: [
+                            {
+                                offset: 0x72D503,
+                                off: [0x7d, 0x4d],
+                                on: [0x90, 0x90],
+                            },
+                        ],
+                    },
+                    {
+                        name: "锁定光标",
+                        patches: [
+                            { offset: 0x701CFF, off: [0x74, 0x1f], on: [0x90, 0x90] },
+                        ],
+                    },
+                    {
+                        name: "快速重开",
+                        patches: [
+                            { offset: 0x4A80BF, off: [0x32, 0xC0], on: [0xB0, 0x01] },
+                        ],
+                    },
+                    {
+                        name: "冻结菜单/标准模式时间",
+                        patches: [{ offset: 0x779AA7, off: [0x74], on: [0xeb] }],
+                    },
+                    {
+                        name: "启用共享模式WASAPI(44100Hz 16bit)",
+                        patches: [{ offset: 0x28C801, off: [0x01], on: [0x00] }],
+                    },
+                    {
+                        name: "默认显示FAST/SLOW总数",
+                        patches: [
+                            { offset: 0x717CA3, off: [0x74], on: [0x75] },
+                            { offset: 0x717EC0, off: [0x74], on: [0x75] },
+                        ],
+                    },
+                ]),
             ]);
         });
     </script>
