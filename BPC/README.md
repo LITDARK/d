@@ -2,7 +2,7 @@
 
 A Custom version of BEMANIPatcher. Added support for "SOME" game releases.
 
-Live version hosted on [my blog](https://LITDARK.cn/BPC/) and [mon's website](https://mon.im/bemanipatcher/).
+Live version hosted on [my blog](https://LITDARK.cn/BPC/).
 
 Edited by LITDARK. Original README file below.
 
