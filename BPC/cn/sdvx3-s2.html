@@ -1,20 +1,99 @@
 <!DOCTYPE html>
 <html lang="zh">
-    <head>
-        <meta charset="utf-8">
-        <title>SOUND VOLTEX III GRAVITY WARS S2 DLL Modder</title>
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
-        <link href="../../assets/images/favicon.png" rel="shortcut icon" type="image/png">
-        <!-- don't hate -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script type="text/javascript" src="../js/FileSaver.min.js"></script>
-        <script type="text/javascript" src="../js/dllpatcher-cn.js"></script>
-        <script type="text/javascript">
-            window.addEventListener("load", function() {
+ <head>
+  <meta charset="utf-8">
+  <title>SOUND VOLTEX III GRAVITY WARS DLL Modder</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+  <link href="../../assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  <!-- don't hate -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script type="text/javascript" src="../js/FileSaver.min.js"></script>
+  <script type="text/javascript" src="../js/dllpatcher-cn.js"></script>
+  <script type="text/javascript">
+     window.addEventListener("load", function() {
                 // all patches made by DJH unless specified otherwise
-              new PatchContainer([
-                new Patcher("soundvoltex.dll", "2016-12-12", [
+       new PatchContainer([
+           new Patcher("soundvoltex.dll", "2015-11-16 (Season 1)", [
+            {
+              name: "解锁全曲",
+              patches: [
+                {
+                  offset: 0x12cd65,
+                  off: [0xe8, 0x56, 0x8b, 0x01],
+                  on: [0xb8, 0x0b, 0x00, 0x00],
+                },
+              ],
+            },
+            {
+              name: "以Event Mode模式启动",
+              tooltip:
+                "启动时强制进入Event Mode模式",
+              patches: [
+                {
+                  offset: 0x15b3e2,
+                  off: [0x00],
+                  on: [0x01],
+                },
+              ],
+            },
+            {
+              name: '全曲目\"Safe\"',
+              tooltip: "血条归零不会闭店",
+              patches: [
+                {
+                  offset: 0x1424d6,
+                  off: [0x32, 0xc0],
+                  on: [0xb0, 0x01],
+                },
+              ],
+            },
+            {
+              name: "阻止启动时更改系统音量",
+              tooltip: "若游戏启动时音量被拉满，请启用此选项。",
+              patches: [
+                {
+                  offset: 0x1f0e5a,
+                  off: [0xe8, 0x21, 0x03, 0x00, 0x00],
+                  on: [0x90, 0x90, 0x90, 0x90, 0x90],
+                },
+              ],
+            },
+            {
+              name: "启用Premium Free(伪)模式",
+              tooltip:
+                "只保存分数，不会保存任务进度及个人设置。",
+              patches: [
+                {
+                  offset: 0x17ca4f,
+                  off: [0x00],
+                  on: [0x02],
+                },
+                {
+                  offset: 0x17cad6,
+                  off: [0x8b, 0x83, 0x78, 0x0a, 0x00, 0x00],
+                  on: [0xe9, 0x6f, 0xd1, 0x0c, 0x00, 0x90],
+                },
+                {
+                  offset: 0x249c4a,
+                  off: [0x00, 0x00, 0x00, 0x00],
+                  on: [0xc7, 0x83, 0x78, 0x0a],
+                },
+                {
+                  offset: 0x249c50,
+                  off: [
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                  ],
+                  on: [
+                    0x01, 0x00, 0x00, 0x00, 0x8b, 0x83, 0x78, 0x0a, 0x00, 0x00,
+                    0xe9, 0x7d, 0x2e, 0xf3, 0xff, 0x00,
+                  ],
+                },
+              ],
+            },
+           ]),
+                new Patcher("soundvoltex.dll", "2016-12-12 (Season 2)", [
                     {
                      name : "解锁全曲",
                      patches : [{offset : 0x13AF9B, off: [0xE8, 0xF0, 0xE2, 0x01], on : [0xB8, 0x0B, 0x00, 0x00]},
@@ -158,11 +237,11 @@
                         ]
                     }
                 ]),
-              ]);
-            });
+       ]);
+     });
         </script>
-    </head>
+ </head>
     <body>
-        <h1>SOUND VOLTEX III GRAVITY WARS S2 DLL Modder</h1>
+        <h1>SOUND VOLTEX III GRAVITY WARS DLL Modder</h1>
     </body>
 </html>
