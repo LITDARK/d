@@ -1,13 +1,12 @@
 # BemaniPatcher-Custom
 
-A Custom version of BEMANIPatcher. Added support for some "N-0" games.
+A Custom version of BEMANIPatcher. Added support for "SOME" game releases.
 
 Live version hosted on [my blog](https://LITDARK.cn/BPC/) and [mon's website](https://mon.im/bemanipatcher/).
 
 Edited by LITDARK. Original README file below.
 
 ## BemaniPatcher
-
 A tool to easily apply known hex edits to any binary, with examples for Bemani games.
 
 Should work on most modern browsers.
@@ -15,16 +14,18 @@ Should work on most modern browsers.
 Live version hosted [on my website](https://mon.im/bemanipatcher/).
 
 ## Asking about new patches
-
 These days, I do not create the patches. Everything is community submitted.
 If you would like new hex edits, make them yourself and make a pull request!
 
-
+## Patch rules
+- *New*: No n-0 newer than 1 year ago. [Why?](https://github.com/mon/BemaniPatcher/blob/master/docs/why_no_n_minus_zero.md)
+- Rhythm games only. Bombergirl is the one exception, it's Konami anyway.
+- No autoplay patches
+  - It is far too easy to accidentally get people banned from their networks
+  - It's mainly used to upload autoplays to YouTube, which is not something I want to be involved with
 
 ## Submitting a new game
-
 Here is your checklist:
-
 - Add the new game html, it is easiest to copy an existing game and modify it.
   The html should be named `[game][release].html` except IIDX because they just
   happen to be `[release].html` only...
@@ -42,8 +43,3 @@ multiple commits, I will squash and merge.
 
 Please do not worry about submitting "bad" PRs. If there is something wrong, I
 will tell you how to fix it or I will fix it myself before merging.
-
-Submitting a PR for an n-0 game is frowned upon in the general community and
-might make you disliked. The BemaniPatcher repository does not judge, and **I
-will merge n-0 patches**, but please be mindful that your submission may have
-unintended consequences for you.
