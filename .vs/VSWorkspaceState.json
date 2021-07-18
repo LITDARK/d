@@ -2,8 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\BPC",
-    "\\BPC\\cn"
+    "\\BPC\\cn",
+    "\\BPC\\n",
+    "\\BPC\\n\\minus",
+    "\\BPC\\n\\minus\\0",
+    "\\BPC\\n\\minus\\0\\BPC",
+    "\\BPC\\n\\minus\\0\\BPC\\cn"
   ],
-  "SelectedNode": "\\BPC\\bistrover.html",
+  "SelectedNode": "\\BPC\\n\\minus\\0\\BPC\\cn\\popn26riddles.html",
   "PreviewInSolutionExplorer": false
 }
