@@ -1,22 +1,22 @@
 ﻿<!DOCTYPE html>
-<html lang='zh'>
+<html lang='en'>
 <head>
     <meta charset='utf-8'>
     <title>Nostalgia Op.3 DLL Modder</title>
-    <link rel='stylesheet' href='../css/style.css'>
-    <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
-    <link href="../../assets/images/favicon.png" rel="shortcut icon" type="image/png">
+    <link rel='stylesheet' href='../../../../css/style.css'>
+    <link rel="icon" type="image/png" href="../../../../../assets/images/favicon.png">
+    <link href="../../../../../assets/images/favicon.png" rel="shortcut icon" type="image/png">
     <!-- don't hate -->
     <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
-    <script type='text/javascript' src='../js/FileSaver.min.js'></script>
-    <script type='text/javascript' src='../js/dllpatcher-cn.js'></script>
+    <script type='text/javascript' src='../../../../js/FileSaver.min.js'></script>
+    <script type='text/javascript' src='../../../../js/dllpatcher.js'></script>
     <script type='text/javascript'>
       window.addEventListener('load', function () {
         new PatchContainer([
           // Patches found by Arm1stice
           new Patcher('nostalgia.dll', "2020-01-16", [
             {
-              name: '冻结菜单时间',
+              name: 'Menu Timer Freeze',
               patches: [{offset: 0x305AA3, off: [0x41, 0xFF, 0xC8], on: [0x90, 0x90, 0x90]}]
             },
           ]),
