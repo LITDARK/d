@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>CHUNITHM PARADISE Modder</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" type="image/png" href="../../assets/images/favicon.png">
+        <link href="../../assets/images/favicon.png" rel="shortcut icon" type="image/png">
+        <!-- don't hate -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script type="text/javascript" src="../js/FileSaver.min.js"></script>
+        <script type="text/javascript" src="../js/dllpatcher-cn.js"></script>
+        <script type="text/javascript">
+            window.addEventListener("load", function () {
+                new Patcher("chuniApp.exe", "", [
+                    {
+                        name: "允许使用127.0.0.1/localhost作为服务器地址",
+                        patches: [
+                            {offset: 0x9B5BF0, off: [0x55, 0x8B, 0xEC], on: [0x31, 0xC0, 0xC3]},
+                            {offset: 0x1743510, off: [0x31, 0x32, 0x37, 0x2F], on: [0x30, 0x2F, 0x38, 0x00]}
+                        ]
+                    },
+                    {
+                        name: "关闭夜间闭店设置",
+                        tooltip: "关闭凌晨12点至次日早8点的强制闭店，但无法跳过日本时间早6:30至7点的维护时间",
+                        patches: [
+                            {offset: 0x9DD843, off: [0x74], on: [0xEB]},
+                        ],
+                    },
+                    {
+                        name: "启用共享音频，音频采样率必须为48000Hz",
+                        tooltip: "改善兼容性但可能增加延迟",
+                        patches: [
+                            {offset: 0xD1134A, off: [0x01], on: [0x00]},
+                        ],
+                    },
+                    {
+                        name: "强制使用双声道输出",
+                        patches: [
+                            {offset: 0xD11421, off: [0x75, 0x3F], on: [0x90, 0x90]},
+                        ],
+                    },
+                    {
+                        name: "关闭选歌倒计时",
+                        tooltip: "可能只对刷卡游玩有效",
+                        patches: [
+                            {offset: 0x784A42, off: [0x74], on: [0xEB]},
+                        ],
+                    },
+                    {
+                        name: "设置所有倒计时为999",
+                        patches: [
+                            {offset: 0x62D790, off: [0x8B, 0x44, 0x24, 0x04, 0x69, 0xC0, 0xE8, 0x03, 0x00, 0x00], on: [0xB8, 0x58, 0x3E, 0x0F, 0x00, 0x90, 0x90, 0x90, 0x90, 0x90]},
+                        ],
+                    },
+                    {
+                        // lin714093880 & esterTion
+                        name: "修复点对点游玩",
+                        tooltip: "修复点对点游玩时的无限同步",
+                        patches: [
+                            {offset: 0x48C9B3, off: [0x01], on: [0x00]},
+                        ]
+                    },
+                    {
+                        name: "自动演奏(Auto Play)",
+                        patches: [
+                            {offset: 0x747369, off: [0x00], on: [0x01]},
+                        ],
+                    },
+                    {
+                        // maybenotuseful
+                        name: "兼容WIndows 7系统",
+                        tooltip: "可能无法连接到服务器",
+                        patches: [
+                            {offset: 0x1bdd428, off: [0x45, 0x78], on: [0x5F, 0x41]},
+                            {offset: 0x1bdd430, off: [0x43, 0x61, 0x6E, 0x63, 0x65, 0x6C, 0x51, 0x75, 0x65, 0x72, 0x79], on: [0x51, 0x75, 0x65, 0x72, 0x79, 0x5F, 0x41, 0x00, 0x00, 0x00, 0x00]},
+                        ],
+                    },
+                    {
+                        // ikaros14
+                        name: "最大Credits数量增至254",
+                        patches: [
+                            {offset: 0xCB28D7, off: [0x8A, 0x5D, 0x14], on: [0xB3, 0xFE, 0x90]},
+                        ],
+                    },
+                    {
+                        // esterTion
+                        name: "启用FREE PLAY模式",
+                        tooltip: "无限Credits",
+                        patches: [
+                            {offset: 0xCB2CF5, off: [0x28], on: [0x08]},
+                        ],
+                    },
+                    {
+                        // esterTion
+                        name: "虚拟LED",
+                        tooltip: "跳过LED自检",
+                        patches: [
+                            {offset: 0x24A5E7, off: [0x00], on: [0x01]},
+                        ],
+                    },
+                    {
+                        name: "Title Server不加密(No Encryption)",
+                        tooltip: "用于过网络自检",
+                        patches: [
+                            {offset: 0x3E2832, off: [0x39], on: [0xC3]},
+                        ]
+                    },
+                    {
+                        name: "Title Server不使用TLS安全协议(No TLS)",
+                        tooltip: "用于过网络自检",
+                        patches: [
+                            {offset: 0xD04D09, off: [0x81, 0xE3, 0x00, 0x00, 0x80, 0x00], on: [0x31, 0xDB, 0x90, 0x90, 0x90, 0x90]},
+                        ]
+                    }
+                ]);
+            });
+        </script>
+    </head>
+    <body>
+        <h1>CHUNITHM PARADISE Modder</h1>
+    </body>
+</html>
+
