@@ -12,13 +12,15 @@
         <script type="text/javascript" src="../js/dllpatcher-cn.js"></script>
         <script type="text/javascript">
             window.addEventListener("load", function () {
-                new Patcher("museca.dll", "", [
+                new PatchContainer([
+                  new Patcher("museca.dll", "2016-07-13", [
                     {
                         //Discovered by Cammy - ported by Zelminar
                         name: "锁定在\"Song 1\"",
                         tooltip: "只保存分数，不会保存档案进度及个人设置。重启游戏以重新请求分数",
                         patches: [{offset: 0x27E0C7, off: [0xFF, 0x83, 0x8C, 0x09, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
                     },
+                  ]),
                 ]);
             });
         </script>

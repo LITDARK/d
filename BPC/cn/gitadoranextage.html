@@ -12,7 +12,8 @@
     <script type="text/javascript" src="../js/dllpatcher-cn.js"></script>
     <script type="text/javascript">
         window.addEventListener("load", function () {
-            new Patcher("game.dll", "", [
+            new PatchContainer([
+             new Patcher("game.dll", "2020-07-06", [
               {
                 name: "冻结时间",
                 patches: [{offset: 0x1035BF, off: [0x0F, 0x85], on: [0x90, 0xE9]}]
@@ -46,6 +47,7 @@
                 name: '跳过"NOW DATA INITIALIZING"(用于测试)',
                 patches: [{offset: 0x36E5D, off: [0x0F, 0x84, 0x74, 0x01, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90]}]
               },
+             ]),
             ]);
         });
     </script>

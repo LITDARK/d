@@ -13,7 +13,8 @@
         <script type="text/javascript">
             window.addEventListener("load", function() {
                 // all patches made by DJH unless specified otherwise
-                new Patcher("soundvoltex.dll", "", [
+              new PatchContainer([
+                new Patcher("soundvoltex.dll", "2016-12-12", [
                     {
                      name : "解锁全曲",
                      patches : [{offset : 0x13AF9B, off: [0xE8, 0xF0, 0xE2, 0x01], on : [0xB8, 0x0B, 0x00, 0x00]},
@@ -156,7 +157,8 @@
                             },
                         ]
                     }
-                ]);
+                ]),
+              ]);
             });
         </script>
     </head>
