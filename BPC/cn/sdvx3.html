@@ -26,6 +26,17 @@
               ],
             },
             {
+              name: '全曲目\"Safe\"',
+              tooltip: "血条归零不会闭店",
+              patches: [
+                {
+                  offset: 0x1424d6,
+                  off: [0x32, 0xc0],
+                  on: [0xb0, 0x01],
+                },
+              ],
+            },
+            {
               name: "以Event Mode模式启动",
               tooltip:
                 "启动时强制进入Event Mode模式",
@@ -34,17 +45,6 @@
                   offset: 0x15b3e2,
                   off: [0x00],
                   on: [0x01],
-                },
-              ],
-            },
-            {
-              name: '全曲目\"Safe\"',
-              tooltip: "血条归零不会闭店",
-              patches: [
-                {
-                  offset: 0x1424d6,
-                  off: [0x32, 0xc0],
-                  on: [0xb0, 0x01],
                 },
               ],
             },

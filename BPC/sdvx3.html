@@ -26,6 +26,17 @@
               ],
             },
             {
+              name: 'All songs "Safe"',
+              tooltip: "Failing early won't drop you out of your session",
+              patches: [
+                {
+                  offset: 0x1424d6,
+                  off: [0x32, 0xc0],
+                  on: [0xb0, 0x01],
+                },
+              ],
+            },
+            {
               name: "Boot to Event Mode",
               tooltip:
                 "Forces Event Mode on bootup (Free play, infinite menu time).",
@@ -34,17 +45,6 @@
                   offset: 0x15b3e2,
                   off: [0x00],
                   on: [0x01],
-                },
-              ],
-            },
-            {
-              name: 'All songs "Safe"',
-              tooltip: "Failing early won't drop you out of your session",
-              patches: [
-                {
-                  offset: 0x1424d6,
-                  off: [0x32, 0xc0],
-                  on: [0xb0, 0x01],
                 },
               ],
             },
