@@ -24,7 +24,7 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     color: inherit;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-    background: #fff;
+    background: #21262D;
 }
 
 .gameicon {
@@ -61,6 +61,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    color: #FFFFFF;
 }
 
 .fileInput {
@@ -76,7 +77,7 @@
 }
 
 .success {
-    color: DarkGreen;
+    color: #40B31A;
 }
 
 .success.hidden {
@@ -84,7 +85,8 @@
 }
 
 .patchContainer {
-    background-color: white;
+    background-color: #21262D;
+    color: #FFFFFF;
     padding: 20px;
     max-width: 650px;
     margin: 0 auto 2em;
@@ -145,24 +147,30 @@ body {
     font-size: 18px;
     color: #000;
     padding: 0 10px;
-    background: #e2e1e0;
+    background: #0D1117;
     font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 }
 
-h1,
+h1 {
+    color: #FFFFFF;
+    text-align: center;
+}
+
 h2,
+
 h3 {
     line-height: 1.2;
 }
 
 h4,
+
 h5 {
     line-height: 1;
     margin: 10px auto;
 }
 
-h1 {
-    text-align: center;
+h6 {
+    color: #FFFFFF;
 }
 
 h1 a {
@@ -212,7 +220,7 @@ button:hover:enabled, .fileLabel > strong:hover {
 .matchSuccess {
     font-size: 15px;
     font-style: italic;
-    color: green;
+    color: #40B31A;
 }
 
 li > button {
@@ -311,4 +319,16 @@ input[type=radio] {
 }
 input[type=checkbox]:checked + .patchPreview {
     display: block;
+}
+
+a:link {
+  color: hotpink;
+}
+
+a:visited {
+  color: hotpink;
+}
+
+a:hover {
+  color: pink;
 }
