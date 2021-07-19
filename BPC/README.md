@@ -7,7 +7,7 @@ Live version hosted on [my blog](https://LITDARK.cn/BPC/).
 Edited by LITDARK. Original README file below.
 
 >## BemaniPatcher
-A tool to easily apply known hex edits to any binary, with examples for Bemani games.
+>A tool to easily apply known hex edits to any binary, with examples for Bemani games.
 >
 >Should work on most modern browsers.
 >
