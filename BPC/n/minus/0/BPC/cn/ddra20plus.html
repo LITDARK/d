@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <title>DDR A20 Plus DLL Modder</title>
+    <link rel="stylesheet" href="../../../../../css/style.css">
+    <link rel="icon" type="image/png" href="../../../../../../assets/images/favicon.png">
+    <link href="../../../../../../assets/images/favicon.png" rel="shortcut icon" type="image/png">
+    <!-- don't hate -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script type="text/javascript" src="../../../../../js/FileSaver.min.js"></script>
+    <script type="text/javascript" src="../../../../../js/dllpatcher-cn.js"></script>
+    <script type="text/javascript">
+        window.addEventListener("load", function () {
+            new PatchContainer([
+                new Patcher("gamemdx.dll", "2020-07-27", [
+                    {
+                        name: "强制使用\"Cabinet Type 6\"",
+                        tooltip: "即DDR20周年纪念金色框体",
+                        patches: [{offset: 0x0DB48, off: [0xFF, 0x24], on: [0xEB, 0x71]}]
+                    },
+                    {
+                        name: "启用FAST/SLOW显示",
+                        patches: [{offset: 0xA5590, off: [0x8B, 0x41, 0x44], on: [0x31, 0xC0, 0x40]}]
+                    },
+                    {
+                        name: "强制后台判定",
+                        patches: [{offset: 0xA5580, off: [0x8B, 0x41], on: [0x31, 0xC0]}]
+                    },
+                    {
+                        name: "强制使用暗色背景",
+                        patches: [{offset: 0xA631E, off: [0x75, 0x03, 0x33, 0xC0], on: [0x33, 0xC0, 0xB0, 0x03]}]
+                    },
+                    {
+                        name: "解锁所有歌曲",
+                        patches: [
+                            {offset: 0x99646, off: [0x75, 0x08, 0x5E, 0x32, 0xC0], on: [0x90, 0x90, 0x5E, 0xB0, 0x01]},
+                            {offset: 0x9AD10, off: [0x0F, 0x8C], on: [0x90, 0xE9]},
+                            {offset: 0x1D4CFC, off: [0x65], on: [0x62]},
+                            {offset: 0x1D4D10, off: [0x72], on: [0x62]},
+                            {offset: 0x1D4D18, off: [0x6C], on: [0x62]},
+                            {offset: 0x1D4D24, off: [0x6C], on: [0x62]},
+                        ]
+                    },
+                    {
+                        name: "跳过教程",
+						patches: [{offset: 0x4E003, off: [0x75], on: [0xEB]}]
+                    },
+                    {
+                        name: "冻结时间",
+                        patches: [{offset: 0x292F5, off: [0x74], on: [0xEB]}]
+                    },
+                    {
+                        name: "启用Premium Free模式",
+						patches: [{offset: 0x1FD71, off: [0x01], on: [0x00]}]
+                    },
+                    {
+                        name: "解锁E-Amusement独占设置",
+                        tooltip: "解锁箭头颜色等独占设置",
+						patches: [{offset: 0x8E8B3, off: [0x75], on: [0xEB]}]
+                    },
+                    {
+                        name: '背景CV静音',
+                        tooltip: '同时静音游戏中的喝彩声等效果音',
+						patches: [
+							{offset: 0x2C448, off: [0x0F, 0x84], on: [0x90, 0xE9]},
+							{offset: 0x1C74E3, off: [0x76], on: [0x62]},
+							{offset: 0x1C74FF, off: [0x76], on: [0x62]},
+                        ]
+                    },
+                    {
+                        name: "启用DDR SELECTION分类",
+                        tooltip: "离线/本地服也可使用！",
+						patches: [{offset: 0x88E09, off: [0xE8, 0x52, 0xB3, 0x01], on: [0xB8, 0x01, 0x00, 0x00]}]
+                    },
+                    {
+                        name: '强制使用DDR SELECTION主题',
+                        tooltip: '跳过开头并对所有歌曲启用下面选择的主题',
+						patches: [
+							{offset: 0x28061, off: [0x0F, 0x84], on: [0x90, 0xE9]},
+							{offset: 0xA3CCD, off: [0x75, 0x49], on: [0x90, 0x90]},
+							{offset: 0xA3CDA, off: [0x77, 0x3C], on: [0x90, 0x90]},
+							{offset: 0xA3CDC, off: [0xFF, 0x24], on: [0xEB, 0x11]},
+                        ]
+                    },
+                    {
+                        type : "union",
+                        name : "选择主题",
+						offset : 0xA3CE4,
+                        patches : [
+                            {
+                                name : "1st",
+                                patch : [0x01],
+                            },
+                            {
+                                name : "EXTREME",
+                                patch : [0x02],
+                            },
+                            {
+                                name : "SuperNOVA2",
+                                patch : [0x03],
+                            },
+                            {
+                                name : "X2",
+                                patch : [0x04],
+                            },
+                            {
+                                name : "2013",
+                                patch : [0x05],
+                            },
+                        ]
+                    }
+                ]),
+            ]);
+        });
+    </script>
+</head>
+<body>
+    <h1>DDR A20 Plus DLL Modder</h1>
+</body>
+</html>
