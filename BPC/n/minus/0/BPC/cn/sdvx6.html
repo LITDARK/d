@@ -25,13 +25,23 @@
               patches: [{ offset: 0x1ec5eb, off: [0x75], on: [0xeb] }],
             },
             {
+              name: "强制BIO2 IO以Valkryie Model(女武神框)模式启动",
+              tooltip: "在ea3-config.xml中更改版本号KFC后第二个字母‘<spec __type=\"str\">F</spec>’为G或H后生效",
+              patches: [{ offset: 0x3f02d5, off: [0x87, 0x05], on: [0x47, 0x0c] }],	
+            },
+            {
+              name: "启用120Hz支持",
+              tooltip: "将判定模式更改为120帧专用模式。若在60Hz屏幕上启用女武神框请不要勾选此设置！！！",
+              patches: [{ offset: 0x6f70fe, off: [0x4e], on: [0x5e] }],
+            },
+            {
               name: "启用共享模式WASAPI",
               tooltip: "只更改当前默认音频设备。请更改音频设备格式为44100Hz 16bit。",
               patches: [{ offset: 0x42b089, off: [0x04], on: [0x00] }],
             },
             {
-              name: "冻结时间", // ikaros14
-              patches: [{ offset: 0x71166, off: [0x84], on: [0x85] }],
+              name: "启用女武神框共享模式WASAPI",
+              patches: [{ offset: 0x42AFE7, off: [0x07], on: [0x00] }],
             },
             {
               name: "允许使用非E004卡片",
@@ -40,6 +50,23 @@
                 { offset: 0xA4B, off: [0x75, 0x12], on: [0x90, 0x90] },
                 { offset: 0xA53, off: [0x74], on: [0xEB] }
               ],
+            },
+            {
+              name: "冻结时间", // ikaros14
+              patches: [{ offset: 0x71166, off: [0x84], on: [0x85] }],
+            },
+            {
+              name: '冻结Premium Time时间',
+              patches: [
+                { offset: 0x2F1D65, off: [0x0F, 0x85], on: [0x90, 0xE9] }, //during music select
+                { offset: 0x278819, off: [0x0F, 0x84], on: [0x90, 0xE9] }, //during song
+                { offset: 0x1CD098, off: [0x75], on: [0xEB] }, //during result screen
+              ]
+            },
+            {
+              name: "隐藏PT模式快捷键提示栏",
+              tooltip : "取而代之的是血条四周会有Blaster Pass的彩虹效果",
+              patches: [{ offset: 0x20F9FD, off: [0xE7, 0x25, 0x48], on: [0x17, 0xC7, 0x43] }],
             },
             {
               type: "union",
@@ -77,7 +104,7 @@
               patches: [{ offset: 0x1ecdab, off: [0x75], on: [0xeb] }],
             },
 			{
-              name: "启用Valkryie Model(女武神框)模式",
+              name: "强制BIO2 IO以Valkryie Model(女武神框)模式启动",
               tooltip: "在ea3-config.xml中更改版本号KFC后第二个字母‘<spec __type=\"str\">F</spec>’为G或H后生效",
               patches: [{ offset: 0x3f1bd5, off: [0x87, 0x05], on: [0x47, 0x0c] }],	
             },
@@ -92,8 +119,33 @@
               patches: [{ offset: 0x42d009, off: [0x04], on: [0x00] }],
             },
             {
+              name: "启用女武神框共享模式WASAPI",
+              patches: [{ offset: 0x42CF67, off: [0x07], on: [0x00] }],
+            },
+            {
+              name: "允许使用非E004卡片",
+              tooltip: "允许使用非E004卡片(如Mifare卡片)",
+              patches: [
+                { offset: 0xA4B, off: [0x75, 0x12], on: [0x90, 0x90] },
+                { offset: 0xA53, off: [0x74], on: [0xEB] }
+              ],
+            },
+            {
               name: "冻结时间", // ikaros14
               patches: [{ offset: 0x713d6, off: [0x84], on: [0x85] }],
+            },
+            {
+              name: '冻结Premium Time时间',
+              patches: [
+                { offset: 0x2F30A5, off: [0x0F, 0x85], on: [0x90, 0xE9] }, //during music select
+                { offset: 0x279C39, off: [0x0F, 0x84], on: [0x90, 0xE9] }, //during song
+                { offset: 0x1CD8C8, off: [0x75], on: [0xEB] }, //during result screen
+              ]
+            },
+            {
+              name: "隐藏PT模式快捷键提示栏",
+              tooltip : "取而代之的是血条四周会有Blaster Pass的彩虹效果",
+              patches: [{ offset: 0x2101BD, off: [0x27, 0x5F, 0x48], on: [0x87, 0x02, 0x44] }],
             },
             {
               type: "union",
@@ -131,7 +183,7 @@
               patches: [{ offset: 0x1ecf5b, off: [0x75], on: [0xeb] }],
             },
 			{
-              name: "启用Valkryie Model(女武神框)模式",
+              name: "强制BIO2 IO以Valkryie Model(女武神框)模式启动",
               tooltip: "在ea3-config.xml中更改版本号KFC后第二个字母‘<spec __type=\"str\">F</spec>’为G或H后生效",
               patches: [{ offset: 0x3f37c5, off: [0x87, 0x05], on: [0x47, 0x0c] }],	
             },
@@ -146,8 +198,33 @@
               patches: [{ offset: 0x42ec39, off: [0x04], on: [0x00] }],
             },
             {
+              name: "启用女武神框共享模式WASAPI",
+              patches: [{ offset: 0x42EB97, off: [0x07], on: [0x00] }],
+            },
+            {
+              name: "允许使用非E004卡片",
+              tooltip: "允许使用非E004卡片(如Mifare卡片)",
+              patches: [
+                { offset: 0xA4B, off: [0x75, 0x12], on: [0x90, 0x90] },
+                { offset: 0xA53, off: [0x74], on: [0xEB] }
+              ],
+            },
+            {
               name: "冻结时间", // ikaros14
               patches: [{ offset: 0x71406, off: [0x84], on: [0x85] }],
+            },
+            {
+              name: '冻结Premium Time时间',
+              patches: [
+                { offset: 0x2F44F5, off: [0x0F, 0x85], on: [0x90, 0xE9] }, //during music select
+                { offset: 0x27B009, off: [0x0F, 0x84], on: [0x90, 0xE9] }, //during song
+                { offset: 0x1CDA78, off: [0x75], on: [0xEB] }, //during result screen
+              ],
+            },
+            {
+              name: "隐藏PT模式快捷键提示栏",
+              tooltip : "取而代之的是血条四周会有Blaster Pass的彩虹效果",
+              patches: [{ offset: 0x21093D, off: [0xEF, 0x97, 0x48], on: [0xBF, 0x3A, 0x44] }],
             },
             {
               type: "union",
