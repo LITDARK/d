@@ -311,6 +311,127 @@
             ]);
         });
     </script>
+    <script type="text/javascript">
+      window.addEventListener("load", function () {
+        new PatchContainer([
+                //patch by J0nny0 (hints from inaki)
+                new Patcher("arkmdxp3.dll", "2020-07-28", [
+                    {
+                        type: "union",
+                        name: "屏幕型号设置",
+                        tooltip: "更改屏幕型号以修改分辨率 (SD/HD)",
+                        offset: 0x60A2F,
+                        patches:[
+                            {
+                                name : "CRT 945 P3IO SD",
+                                patch : [0x00],
+                            },
+                            {
+                                name : "LCD 945 P3IO",
+                                patch : [0x01],
+                            },
+                            {
+                                name : "LCD HM64 P4IO SD",
+                                patch : [0x02],
+                            },
+                            {
+                                name : "CRT ADE-6291 P3IO HD",
+                                patch : [0x03],
+                            },
+                            {
+                                name : "LCD ADE-6291 P3IO HD (强制金框体)",
+                                patch : [0x04],
+                            },
+                            {
+                                name : "LCD ADE-6291 P4IO",
+                                patch : [0x05],
+                            },
+                            {
+                                name : "LCD ADE-6291 BIO2",
+                                patch : [0x06]},
+                            ]
+                        },
+                    ]),
+                //patch by J0nny0
+                new Patcher("arkmdxp3.dll", "2021-03-16", [
+                    {
+                        type: "union",
+                        name: "屏幕型号设置",
+                        tooltip: "更改屏幕型号以修改分辨率 (SD/HD)",
+                        offset: 0x629EF,
+                        patches :[
+                            {
+                                name : "CRT 945 P3io SD",
+                                patch : [0x00],
+                            },
+                            {
+                                name : "LCD 945 P3IO",
+                                patch : [0x01],
+                            },
+                            {
+                                name : "LCD HM64 P4IO SD",
+                                patch : [0x02],
+                            },
+                            {
+                                name : "CRT ADE-6291 P3IO HD",
+                                patch : [0x03],
+                            },
+                            {
+                                name : "LCD ADE-6291 P3IO HD (强制金框体)",
+                                patch : [0x04],
+                            },
+                            {
+                                name : "LCD ADE-6291 P4IO",
+                                patch : [0x05],
+                            },
+                            {
+                                name : "LCD ADE-6291 BIO2",
+                                patch : [0x06]},
+                            ]
+                        }
+                    ]),
+                //patch by J0nny0,Mordecai
+                new Patcher("arkmdxp3.dll", "2021-08-04", [
+                    {
+                        type: "union",
+                        name: "屏幕型号设置",
+                        tooltip: "更改屏幕型号以修改分辨率 (SD/HD)",
+                        offset: 0x64D7F,
+                        patches :[
+                            {
+                                name : "CRT 945 P3IO SD",
+                                patch : [0x00],
+                            },
+                            {
+                                name : "LCD 945 P3IO",
+                                patch : [0x01],
+                            },
+                            {
+                                name : "LCD HM64 P4IO SD",
+                                patch : [0x02],
+                            },
+                            {
+                                name : "CRT ADE-6291 P3IO HD",
+                                patch : [0x03],
+                            },
+                            {
+                                name : "LCD ADE-6291 P3IO HD (强制金框体)",
+                                patch : [0x04],
+                            },
+                            {
+                                name : "LCD ADE-6291 P4IO",
+                                patch : [0x05],
+                            },
+                            {
+                                name : "LCD ADE-6291 BIO2",
+                                patch : [0x06]
+                            },
+                        ]
+                    }
+                ]),
+            ]);
+        });
+    </script>
 </head>
 <body>
     <h1>DDR A20 Plus DLL Modder</h1>
