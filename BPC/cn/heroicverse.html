@@ -87,12 +87,10 @@
             },
             {
               name: '冻结Premium Free模式时间',
-              tooltip: 'Freezes the timer in PREMIUM FREE mode, allowing unlimited play until exit',
               patches: [{offset: 0x356BBD, off: [0x7E], on: [0xEB]}]
             },
             {
               name: '冻结菜单/标准模式时间',
-              tooltip: 'Freezes the timer in STANDARD and in-game menus such as song select',
               patches: [{offset: 0x5BDCA7, off: [0x74], on: [0xEB]}]
             },
             {

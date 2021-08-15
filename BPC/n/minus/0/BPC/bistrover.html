@@ -89,8 +89,11 @@
                                 off: [0x74, 0x55],
                                 on: [0x90, 0x90],
                             },
-                            { offset: 0x65BF2B, off: [0x74, 0x3F], on: [0x90, 0x90] },
-
+                            { 
+                                offset: 0x65BF2B, 
+                                off: [0x74, 0x3F], 
+                                on: [0x90, 0x90] 
+                            },
                         ],
                     },
                     {
@@ -275,6 +278,39 @@
 
                         ],
                     },
+                    {
+                        name: "Force Max V-Discs",
+                        tooltip:
+                            "Only for infinity retry when playing LEGENDARIA charts in Premium Free mode",
+                        patches: [
+                            { 
+                                offset: 0x4B1C19, 
+                                off: [0x44, 0x89, 0x4C, 0x81, 0x08, 0xC3, 0xCC, 0x48, 0x89, 0x5C, 0x24, 0x08], 
+                                on: [0xC7, 0x44, 0x81, 0x08, 0x10, 0x00, 0x00, 0x00, 0x90, 0x90, 0x90, 0x90],
+                            },
+                        ],
+                    },
+                    {
+                        name: "Hide all bottom text",
+                        patches: [
+                            { offset: 0x3B2206, off: [0xFF, 0x15, 0xDC, 0x31, 0x6C, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }, //CREDIT: %d
+                            { offset: 0x3B22E1, off:  [0x7F, 0x12, 0x44, 0x8B, 0xCB, 0x4C, 0x8D, 0x05, 0x9B, 0xA4, 0x6C, 0x00], on: [0x90, 0xE9, 0x22, 0x00, 0x00, 0x00,0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }, //EXTRA PASELI: %d
+                            { offset: 0x3B2404, off: [0x48, 0x8D, 0x05, 0x3D, 0xE7, 0x8F, 0x04], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }, //PASELI: NOT AVAILABLE
+                            { offset: 0x3B24BC, off: [0xFF, 0x15, 0x26, 0x2F, 0x6C, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }, //PASELI: %d
+                            { offset: 0x3B24EB, off: [0xFF, 0x15, 0xF7, 0x2E, 0x6C, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90, 0x90] }, //PASELI: ******
+                            { offset: 0x3B269D, off: [0xE8, 0x5E, 0xB1, 0x00, 0x00], on: [0x90, 0x90, 0x90, 0x90, 0x90] }, //INSERT COIN[S]
+                        ],
+                    },
+                    {
+                        name: "Hide Time Limit at result",
+                        patches: [
+                               {
+                                     offset: 0x734D2F, 
+                                     off: [0x84, 0xC0], 
+                                     on: [0x90, 0x90], 
+                               }, 
+                        ], 
+                    }, 
                     {
                         name: "Premium Free Timer Freeze",
                         tooltip:
