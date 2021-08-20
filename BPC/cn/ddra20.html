@@ -24,11 +24,11 @@
                         patches: [{offset: 0xA0D40, off: [0x8B, 0x41, 0x44], on: [0x31, 0xC0, 0x40]}]
                     },
                     {
-                        name: "强制后台判定",
+                        name: "强制后显判定",
                         patches: [{offset: 0xA0D30, off: [0x8B, 0x41], on: [0x31, 0xC0]}]
                     },
                     {
-                        name: "强制使用暗色背景",
+                        name: "强制使用深色背景",
                         patches: [{offset: 0xA1AEE, off: [0x75, 0x03, 0x33, 0xC0], on: [0x33, 0xC0, 0xB0, 0x03]}]
                     },
                     {
@@ -51,7 +51,8 @@
                         patches: [{offset: 0x28545, off: [0x74], on: [0xEB]}]
                     },
                     {
-                        name: "启用Premium Free模式",
+                        name: "启用Premium Free(伪)模式",
+                        tooltip: "无限Stage 1，只保存分数，无法结算",
                         patches: [{offset: 0x1F788, off: [0x01], on: [0x00]}]
                     },
                     {
@@ -122,11 +123,11 @@
                         patches: [{offset: 0xA0B10, off: [0x8B, 0x41, 0x44], on: [0x31, 0xC0, 0x40]}]
                     },
                     {
-                        name: "强制后台判定",
+                        name: "强制后显判定",
                         patches: [{offset: 0xA0B00, off: [0x8B, 0x41], on: [0x31, 0xC0]}]
                     },
                     {
-                        name: "强制使用暗色背景",
+                        name: "强制使用深色背景",
                         patches: [{offset: 0xA187E, off: [0x75, 0x03, 0x33, 0xC0], on: [0x33, 0xC0, 0xB0, 0x03]}]
                     },
                     {
@@ -149,7 +150,8 @@
                         patches: [{offset: 0x27EE5, off: [0x74], on: [0xEB]}]
                     },
                     {
-                        name: "启用Premium Free模式",
+                        name: "启用Premium Free(伪)模式",
+                        tooltip: "无限Stage 1，只保存分数，无法结算",
                         patches: [{offset: 0x1F391, off: [0x01], on: [0x00]}]
                     },
                     {
